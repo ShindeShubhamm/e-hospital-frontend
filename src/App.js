@@ -1,11 +1,11 @@
-import React from 'react'
-
+import React, { useState } from 'react'
 import "./styles/global.scss"
 
 const App = () => {
+
   return (
-    <div className="App">
-      E hospital
+    <div className="main">
+      Working!
     </div>
   );
 }
