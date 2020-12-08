@@ -1,0 +1,10 @@
+{
+  "eslint.codeActionsOnSave.mode": "all",
+  "html.format.enable": true,
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "editor.wordWrap": "on",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}

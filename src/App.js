@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
-import "./styles/global.scss"
+import React from 'react';
+
+import './styles/global.scss';
 
 const App = () => {
-
   return (
     <div className="main">
-      Working!
+      React
     </div>
   );
-}
+};
 
 export default App;
