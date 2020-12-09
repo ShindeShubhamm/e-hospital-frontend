@@ -24,28 +24,29 @@ const App = () => {
   };
 
   const handleClose = () => {
-    setBackdrop(false);
     setSnackbar({
       open: false,
       message: '',
       severity: '',
     });
+    setTimeout(() => {
+      setBackdrop(false);
+    }, 500);
   };
+
+  const sample = new Array(10).fill(0);
 
   return (
     <div className="main-wrapper">
-      <p className="f1">The quick brown fox jumps over the lazy dog</p>
-      <p className="f2">The quick brown fox jumps over the lazy dog</p>
-      <p className="f3">The quick brown fox jumps over the lazy dog</p>
-      <p className="f4">The quick brown fox jumps over the lazy dog</p>
-      <br />
-      <p className="f5">The quick brown fox jumps over the lazy dog</p>
-      <p className="f6">The quick brown fox jumps over the lazy dog</p>
-      <p className="f7">The quick brown fox jumps over the lazy dog</p>
-      <p className="f8">The quick brown fox jumps over the lazy dog</p>
-      <p className="f9">The quick brown fox jumps over the lazy dog</p>
-      <p className="f10">The quick brown fox jumps over the lazy dog</p>
-      <Snackbar open={snackbar.open} message={snackbar.message} severity={snackbar.severity} onClose={handleClose} />
+      {sample.map((_, i) => (
+        <p className={`f${i + 1}`} key={i}>The quick brown fox jumps over the lazy dog</p>
+      ))}
+      <Snackbar
+        open={snackbar.open}
+        message={snackbar.message}
+        severity={snackbar.severity}
+        onClose={handleClose}
+      />
       <Backdrop open={backdrop} />
       <Button onClick={handleClick} variant="contained" color="primary">Open</Button>
     </div>

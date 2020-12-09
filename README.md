@@ -39,4 +39,4 @@ Git branches:
 
 - main - Main branch (for deployment)
 - development - (for merging features)
-- f/\* - for features development
+- task/\* - for features development
