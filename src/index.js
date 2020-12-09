@@ -9,12 +9,10 @@ import reportWebVitals from './reportWebVitals';
 import { AppTheme } from './theme';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ThemeProvider theme={AppTheme}>
-      <CssBaseline />
-      <App />
-    </ThemeProvider>
-  </React.StrictMode>,
+  <ThemeProvider theme={AppTheme}>
+    <CssBaseline />
+    <App />
+  </ThemeProvider>,
   document.getElementById('root'),
 );
 
