@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 
-import { Button } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import Container from '@material-ui/core/Container';
 
 import Backdrop from './components/common/Backdrop';
-import Loading from './components/common/Loading';
 import Snackbar from './components/common/Snackbar';
+import Layout from './components/Layout/Layout';
 
 import './styles/global.scss';
 
@@ -37,19 +38,23 @@ const App = () => {
   const sample = new Array(10).fill(0);
 
   return (
-    <div className="main-wrapper">
-      {sample.map((_, i) => (
-        <p className={`f${i + 1}`} key={i}>The quick brown fox jumps over the lazy dog</p>
-      ))}
-      <Snackbar
-        open={snackbar.open}
-        message={snackbar.message}
-        severity={snackbar.severity}
-        onClose={handleClose}
-      />
-      <Backdrop open={backdrop} />
-      <Button onClick={handleClick} variant="contained" color="primary">Open</Button>
-    </div>
+    <Layout>
+      <Container>
+        <div className="main-wrapper">
+          {sample.map((_, i) => (
+            <p className={`f${i + 1}`} key={i}>The quick brown fox jumps over the lazy dog</p>
+          ))}
+          <Snackbar
+            open={snackbar.open}
+            message={snackbar.message}
+            severity={snackbar.severity}
+            onClose={handleClose}
+          />
+          <Backdrop open={backdrop} />
+          <Button onClick={handleClick} variant="contained" color="primary">Open</Button>
+        </div>
+      </Container>
+    </Layout>
   );
 };
 

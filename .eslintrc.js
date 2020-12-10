@@ -38,7 +38,6 @@ module.exports = {
     'react/no-access-state-in-setstate': 'off',
     'react/destructuring-assignment': 'off',
     'react/jsx-no-duplicate-props': 'off',
-    'react/jsx-indent': 'off',
     'no-useless-escape': 'off',
     'consistent-return': 'off',
     'no-restricted-globals': 'off',
