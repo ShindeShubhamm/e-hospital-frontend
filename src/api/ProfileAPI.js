@@ -1,8 +1,6 @@
 import axios from 'axios';
 
-import { getAPI } from '../config/api';
-
-const api = getAPI();
+const api = process.env.REACT_APP_API_ENDPOINT;
 
 const ProfileAPI = {
   get: (id) => {

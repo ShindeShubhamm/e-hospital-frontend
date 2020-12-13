@@ -1,4 +1,4 @@
-const DEV_PORT = 4000;
+const PORT = 5000;
 const env = process.env.NODE_ENV;
 
 export const getAPI = () => {
@@ -6,10 +6,10 @@ export const getAPI = () => {
     case 'production':
       return 'https://localhost:4000'; // To be changed, once deployed
     case 'development':
-      return `http://localhost:${DEV_PORT}`;
+      return `http://localhost:${PORT}`;
     case 'test':
-      return `http://localhost:${DEV_PORT}`;
+      return `http://localhost:${PORT}`;
     default:
-      return `http://localhost:${DEV_PORT}`;
+      return `http://localhost:${PORT}`;
   }
 };

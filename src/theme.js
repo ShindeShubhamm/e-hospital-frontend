@@ -16,7 +16,9 @@ const ProximaNova = {
 export const AppTheme = createMuiTheme({
   palette: {
     primary: {
-      main: '#06214f',
+      main: '#1976d2',
+      light: '#4791db',
+      dark: '#115293',
     },
     secondary: {
       main: '#f3b239',
