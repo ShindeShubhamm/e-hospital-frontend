@@ -98,5 +98,8 @@ module.exports = {
       'error',
       { ignoreDeclarationSort: true },
     ],
+    'no-shadow': 'off',
+    indent: 'off',
+    'import/no-named-as-default-member': 'off',
   },
 };

@@ -10,7 +10,7 @@ import store from './lib/redux/store';
 import reportWebVitals from './reportWebVitals';
 import { AppTheme } from './theme';
 
-const AppMain = () => {
+const AppIndex = () => {
   return (
     <ThemeProvider theme={AppTheme}>
       <CssBaseline />
@@ -21,7 +21,7 @@ const AppMain = () => {
   );
 };
 
-ReactDOM.render(<AppMain />, document.getElementById('root'));
+ReactDOM.render(<AppIndex />, document.getElementById('root'));
 
 // Web vitals for performance improvement. For later use.
 reportWebVitals();
