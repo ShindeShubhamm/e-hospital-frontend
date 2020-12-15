@@ -1,3 +1,5 @@
+import ls from 'local-storage';
+
 import {
   ALERT_ERROR,
   ALERT_SET,
@@ -22,13 +24,15 @@ export const authLogin = (data) => (dispatch) => {
   });
   try {
     setTimeout(() => {
+      const token = 'bsdfikkj-sdfjuidsf-sdfikdfsk';
       dispatch({
         type: AUTH_SUCCESS,
         payload: {
           userInfo: data,
-          token: 'bsdfikkj-sdfjuidsf-sdfikdfsk',
+          token,
         },
       });
+      ls.set('token', token);
       dispatch({
         type: BDROP_UNSET,
       });
@@ -52,6 +56,7 @@ export const authLogin = (data) => (dispatch) => {
 };
 
 export const authLogout = () => (dispatch) => {
+  ls.clear();
   dispatch({
     type: AUTH_LOGOUT,
   });

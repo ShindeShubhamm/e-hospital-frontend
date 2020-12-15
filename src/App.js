@@ -2,9 +2,9 @@ import React, { Fragment } from 'react';
 
 import { connect } from 'react-redux';
 
+import AppRouter from './AppRouter';
 import Backdrop from './components/common/Backdrop';
 import Snackbar from './components/common/Snackbar';
-import Login from './components/Login/Login';
 import { snackClose } from './lib/redux/actions/snackbarActions';
 
 import './styles/global.scss';
@@ -14,7 +14,7 @@ const App = (props) => {
 
   return (
     <Fragment>
-      <Login />
+      <AppRouter />
       <Snackbar
         open={snackbar.open}
         message={snackbar.message}
