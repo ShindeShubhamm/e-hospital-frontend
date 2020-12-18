@@ -44,7 +44,7 @@ const FormHandler = (props) => {
         props.onSubmit(formState);
       }
     } catch (error) {
-      // To be db.
+      // To be put in db.
     } finally {
       setCheck(false);
     }

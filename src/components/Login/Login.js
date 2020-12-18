@@ -7,7 +7,7 @@ import FormHandler from '../../lib/forms';
 import { authLogin } from '../../lib/redux/actions/authActions';
 
 const Login = (props) => {
-  const { auth, onLogin, onLogout } = props;
+  const { auth, onLogin } = props;
 
   const handleLogin = (data) => {
     // eslint-disable-next-line
@@ -16,7 +16,7 @@ const Login = (props) => {
   };
 
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="sm">
       <FormHandler
         form="SIGNUP"
         onSubmit={handleLogin}

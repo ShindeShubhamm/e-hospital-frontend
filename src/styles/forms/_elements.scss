@@ -1,0 +1,18 @@
+// each component container
+.ff-component-container {
+  .ff-component-label {
+    font-weight: 500;
+  }
+}
+
+// textfield
+.ff-textfied {
+  width: 100%;
+  .MuiFormHelperText-root.Mui-error {
+    margin-left: 0;
+  }
+  .MuiSelect-root {
+    padding-top: 10.5px;
+    padding-bottom: 10.5px;
+  }
+}

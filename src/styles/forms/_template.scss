@@ -1,0 +1,13 @@
+.ff-filetemplate {
+  width: 100%;
+  .ff-submit-btn-section {
+    display: flex;
+    justify-content: flex-end;
+    @include scMax(600) {
+      justify-content: center;
+    }
+    .ff-btn {
+      margin: 20px 2px 20px 2px;
+    }
+  }
+}

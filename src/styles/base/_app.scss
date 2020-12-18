@@ -7,6 +7,16 @@ body {
   font-family: $default-font;
 }
 
+/* MEDIA QUERIES - Primary layout.
+========================================================================== */
+
+// max screen width
+@mixin scMax($screen) {
+  @media (max-width: $screen+"px") {
+    @content;
+  }
+}
+
 /* LAYOUT - Primary layout.
 ========================================================================== */
 .layout {
