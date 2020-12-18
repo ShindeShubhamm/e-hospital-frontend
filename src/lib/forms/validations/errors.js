@@ -16,6 +16,8 @@ export const getValidationError = (v, label, value) => {
       return 'Please enter a valid URL.';
     case 'payload-size':
       return `Payload size must be below ${bytesToSize(v.maxSize)}.`;
+    case 'min-chars':
+      return `Minimum ${v.length} characters required.`;
     default:
       return 'Invalid value';
   }

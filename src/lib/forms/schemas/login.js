@@ -6,7 +6,6 @@ export const login = () => {
         name: 'email',
         label: 'Email*',
         placeholder: 'johndoe@example.com',
-        type: 'email',
         validate: [
           {
             type: 'required',
@@ -25,6 +24,10 @@ export const login = () => {
         validate: [
           {
             type: 'required',
+          },
+          {
+            type: 'min-chars',
+            length: 6,
           },
         ],
       },

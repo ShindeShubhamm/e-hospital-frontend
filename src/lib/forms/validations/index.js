@@ -7,6 +7,7 @@ import {
   payloadSize,
   required,
   url,
+  minChars
 } from './validation-types';
 
 // Validating single field
@@ -29,6 +30,8 @@ export const isValid = async ({ validate: validations, label }, value) => {
         return url(value);
       case 'payload-size':
         return payloadSize(value, v);
+      case 'min-chars':
+        return minChars(value, v);
       default:
         return true;
     }

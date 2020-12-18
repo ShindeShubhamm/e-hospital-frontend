@@ -21,3 +21,9 @@ export const url = (value) => {
   );
   return pattern.test(value);
 };
+
+// Minimum Character validation
+export const minChars = (value, v) => {
+  const length = v.length || 8;
+  return !(value.length < length);
+};

@@ -46,12 +46,27 @@ const ComponentMapper = (props) => {
     handleValidation(props.value, true);
   };
 
-  switch (props.component) {
-    case 'textfield':
-      return <TextField {...props} onChange={onChange} onBlur={onBlur} meta={meta} />;
-    default:
-      return '';
-  }
+  const eventElementProps = {
+    ...props,
+    onChange,
+    onBlur,
+    meta,
+  };
+
+  const dataElementProps = {
+    ...props,
+    onChange: onData,
+    onBlur,
+    meta,
+  };
+
+  const components = {
+    textfield: <TextField {...eventElementProps} />,
+  };
+
+  return (
+    components[props.component]
+  );
 };
 
 export default ComponentMapper;
