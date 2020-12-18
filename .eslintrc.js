@@ -101,5 +101,7 @@ module.exports = {
     'no-shadow': 'off',
     indent: 'off',
     'import/no-named-as-default-member': 'off',
+    'import/no-named-as-default': 'off',
+    'react/jsx-indent': 'off',
   },
 };

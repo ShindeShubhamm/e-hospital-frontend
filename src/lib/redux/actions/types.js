@@ -12,3 +12,7 @@ export const BDROP_UNSET = 'BDROP_UNSET';
 export const ALERT_SET = 'ALERT_SET';
 export const ALERT_UNSET = 'ALERT_UNSET';
 export const ALERT_ERROR = 'ALERT_ERROR';
+
+// FORM ACTIONS
+export const FORM_SET_DATA = 'FORM_SET_DATA';
+export const FORM_RESET = 'FORM_RESET';

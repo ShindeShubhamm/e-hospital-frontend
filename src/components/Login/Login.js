@@ -1,61 +1,32 @@
 import React from 'react';
 
-import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import { connect } from 'react-redux';
 
-import { authLogin, authLogout } from '../../lib/redux/actions/authActions';
+import FormHandler from '../../lib/forms';
+import { authLogin } from '../../lib/redux/actions/authActions';
 
 const Login = (props) => {
   const { auth, onLogin, onLogout } = props;
 
-  const handleLogin = () => {
-    const userData = {
-      firstName: 'Shubham',
-      lastName: 'Shinde',
-      email: 'shubhamshinde.3151@gmail.com',
-    };
-    onLogin(userData);
-  };
-
-  const handleLogout = () => {
-    onLogout();
+  const handleLogin = (data) => {
+    // eslint-disable-next-line
+    console.log(data);
+    // onLogin(userData);
   };
 
   return (
-    <Container>
-      {auth.isAuthenticated ? (
-        <div className="main-wrapper">
-          <h3>{auth.userInfo.firstName} {auth.userInfo.lastName}</h3>
-          <h3>{auth.userInfo.email}</h3>
-          <h3>token: {auth.token}</h3>
-        </div>
-      ) : (
-          !auth.loading
-            ? (
-              <div className="main-wrapper">
-                <h3>Please Login!</h3>
-              </div>
-            ) : <div className="main-wrapper">Loading...</div>
-        )}
-      {!auth.isAuthenticated && (
-        <Button
-          onClick={handleLogin}
-          variant="contained"
-          color="primary"
-        >
-          Login
-        </Button>
-      )}
-      {auth.isAuthenticated && (
-        <Button
-          onClick={handleLogout}
-          variant="contained"
-          color="primary"
-        >
-          Logout
-        </Button>
-      )}
+    <Container maxWidth="md">
+      <FormHandler
+        form="SIGNUP"
+        onSubmit={handleLogin}
+        submitButtonLabel="Sign Up"
+      />
+      <FormHandler
+        form="LOGIN"
+        onSubmit={handleLogin}
+        submitButtonLabel="Login"
+      />
     </Container>
   );
 };
@@ -69,7 +40,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onLogin: (data) => dispatch(authLogin(data)),
-    onLogout: () => dispatch(authLogout()),
   };
 };
 
