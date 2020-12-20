@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 
 import { Button, Grid } from '@material-ui/core';
-import _ from 'lodash';
+import isEmpty from 'lodash/isEmpty';
 import { connect } from 'react-redux';
 
 import { clearFormData, setFormData } from '../redux/actions/formActions';
@@ -29,7 +29,7 @@ const FormHandler = (props) => {
   const formState = props[state];
 
   useEffect(() => {
-    if (!_.isEmpty(formState) && !props.noInitialChecks) {
+    if (!isEmpty(formState) && !props.noInitialChecks) {
       setCheck(true);
     }
     setErrors(new Array(schema.fields.length).fill(false));

@@ -2,12 +2,12 @@ import {
   FormControl,
   FormHelperText,
   Grid,
+  InputAdornment,
   TextField as MuiTextField,
 } from '@material-ui/core';
 
-const TextField = (props) => {
+const TextArea = (props) => {
   const { meta } = props;
-
   return (
     <Grid
       item
@@ -23,18 +23,27 @@ const TextField = (props) => {
             {props.label}
           </label>
           <MuiTextField
-            value={props.value || ''}
+            value={props.value}
             onChange={props.onChange}
             onBlur={props.onBlur}
             name={props.name}
             id={props.name}
             variant="outlined"
-            type={props.type || 'text'}
             error={!!meta.error && meta.touched}
             helperText={!!meta.error && meta.touched ? meta.error : ''}
-            placeholder={props.placeholder}
             size={props.textFieldSize}
             fullWidth
+            multiline
+            rows={props.rows}
+            placeholder={props.placeholder}
+            InputProps={{
+              readOnly: props.readOnly,
+              startAdornment: props.inputAdornment && (
+                <InputAdornment position={props.inputAdornmentPostion}>
+                  {props.inputAdornment}
+                </InputAdornment>
+              ),
+            }}
           />
           <FormHelperText id={`${props.name}-helper-text`}>{props.helperText}</FormHelperText>
         </FormControl>
@@ -43,7 +52,7 @@ const TextField = (props) => {
   );
 };
 
-TextField.defaultProps = {
+TextArea.defaultProps = {
   className: '',
   style: {},
   readOnly: false,
@@ -52,6 +61,7 @@ TextField.defaultProps = {
   inputAdornmentPostion: 'start',
   helperText: '',
   placeholder: '',
+  rows: 3,
   grid: {
     xs: 12,
     sm: 12,
@@ -61,4 +71,4 @@ TextField.defaultProps = {
   },
 };
 
-export default TextField;
+export default TextArea;

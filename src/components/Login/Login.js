@@ -18,11 +18,6 @@ const Login = (props) => {
   return (
     <Container maxWidth="sm">
       <FormHandler
-        form="SIGNUP"
-        onSubmit={handleLogin}
-        submitButtonLabel="Sign Up"
-      />
-      <FormHandler
         form="LOGIN"
         onSubmit={handleLogin}
         submitButtonLabel="Login"

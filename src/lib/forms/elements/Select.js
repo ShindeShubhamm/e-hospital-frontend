@@ -2,12 +2,12 @@ import {
   FormControl,
   FormHelperText,
   Grid,
-  TextField as MuiTextField,
+  MenuItem,
+  Select as MuiSelect,
 } from '@material-ui/core';
 
-const TextField = (props) => {
+const Select = (props) => {
   const { meta } = props;
-
   return (
     <Grid
       item
@@ -22,36 +22,54 @@ const TextField = (props) => {
           <label htmlFor={props.name} className="ff-component-label">
             {props.label}
           </label>
-          <MuiTextField
-            value={props.value || ''}
+          <MuiSelect
+            value={props.value}
             onChange={props.onChange}
             onBlur={props.onBlur}
             name={props.name}
+            displayEmpty
             id={props.name}
             variant="outlined"
-            type={props.type || 'text'}
             error={!!meta.error && meta.touched}
-            helperText={!!meta.error && meta.touched ? meta.error : ''}
-            placeholder={props.placeholder}
-            size={props.textFieldSize}
             fullWidth
-          />
+          >
+            <MenuItem value="" disabled>
+              {props.placeholder}
+            </MenuItem>
+            {props.options.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                <span className="ff-select-item">
+                  {option.icon
+                    && (typeof option.icon === 'string' ? (
+                      <img src={option.icon} className="ff-select-icon" alt="" />
+                    ) : (
+                        option.icon
+                      ))}
+                  {option.label}
+                </span>
+              </MenuItem>
+            ))}
+          </MuiSelect>
           <FormHelperText id={`${props.name}-helper-text`}>{props.helperText}</FormHelperText>
+          {meta.error && meta.touched && (
+            <div>
+              <span className="ff-error">{meta.error}</span>
+            </div>
+          )}
         </FormControl>
       </div>
     </Grid>
   );
 };
 
-TextField.defaultProps = {
+Select.defaultProps = {
   className: '',
   style: {},
   readOnly: false,
+  placeholder: 'Select',
   textFieldSize: 'small',
-  inputAdornment: '',
-  inputAdornmentPostion: 'start',
   helperText: '',
-  placeholder: '',
+  options: [],
   grid: {
     xs: 12,
     sm: 12,
@@ -61,4 +79,4 @@ TextField.defaultProps = {
   },
 };
 
-export default TextField;
+export default Select;

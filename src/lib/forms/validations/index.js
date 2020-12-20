@@ -1,5 +1,5 @@
 /* eslint-disable  */
-import _ from 'lodash';
+import isArray from 'lodash/isArray';
 
 import { getValidationError } from './errors';
 import {
@@ -12,7 +12,7 @@ import {
 
 // Validating single field
 export const isValid = async ({ validate: validations, label }, value) => {
-  if (!_.isArray(validations)) {
+  if (!isArray(validations)) {
     return { error: '' };
   }
   const isRequired = validations.filter((v) => v.type === 'required');

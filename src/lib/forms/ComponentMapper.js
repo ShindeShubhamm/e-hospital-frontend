@@ -1,5 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 
+import Checkbox from './elements/Checkbox';
+import Radio from './elements/Radio';
+import Select from './elements/Select';
+import Switch from './elements/Switch';
+import TextArea from './elements/TextArea';
 import TextField from './elements/TextField';
 import { isValid } from './validations';
 
@@ -62,10 +67,17 @@ const ComponentMapper = (props) => {
 
   const components = {
     textfield: <TextField {...eventElementProps} />,
+    select: <Select {...eventElementProps} />,
+    textarea: <TextArea {...eventElementProps} />,
+    switch: <Switch {...dataElementProps} />,
+    checkbox: <Checkbox {...dataElementProps} />,
+    radio: <Radio {...eventElementProps} />,
   };
 
   return (
-    components[props.component]
+    <Fragment>
+      {components[props.component]}
+    </Fragment>
   );
 };
 

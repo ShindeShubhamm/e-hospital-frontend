@@ -4,7 +4,7 @@ const env = process.env.NODE_ENV;
 export const getAPI = () => {
   switch (env) {
     case 'production':
-      return 'https://localhost:4000'; // To be changed, once deployed
+      return 'https://e-hospital-backend.herokuapp.com';
     case 'development':
       return `http://localhost:${PORT}`;
     case 'test':

@@ -6,7 +6,7 @@
 }
 
 // textfield
-.ff-textfied {
+.ff-textfield {
   width: 100%;
   .MuiFormHelperText-root.Mui-error {
     margin-left: 0;
@@ -15,4 +15,24 @@
     padding-top: 10.5px;
     padding-bottom: 10.5px;
   }
+}
+
+// select field
+.ff-select-item {
+  display: flex;
+  align-items: center;
+  .ff-select-icon {
+    width: 26px;
+    height: 26px;
+    margin-right: 10px;
+    border-radius: 50%;
+  }
+}
+
+// error
+.ff-error {
+  color: $error;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.66;
 }
