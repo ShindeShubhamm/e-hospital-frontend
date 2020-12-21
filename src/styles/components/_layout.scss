@@ -1,0 +1,90 @@
+/* LAYOUT - Primary layout.
+========================================================================== */
+.layout {
+  position: relative;
+  min-height: 100vh;
+  .l-children {
+    padding: $navbar-padding 0 $footer-padding;
+  }
+}
+
+// Header
+.header {
+  .MuiAppBar-colorPrimary {
+    background-color: #fff;
+    color: #000;
+  }
+  .MuiToolbar-root {
+    padding: 0;
+  }
+  .h-contents {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    .h-left-contents {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .h-menu-button {
+      border: none;
+      outline: none;
+      background-color: transparent;
+      margin-right: 4px;
+      display: none;
+      .h-menu-icon {
+        width: 22px;
+        height: 22px;
+        color: #000;
+      }
+      @include scMax(600) {
+        display: inline-block;
+      }
+    }
+    .h-logo-container {
+      outline: none;
+      cursor: pointer;
+      user-select: none;
+      .h-logo {
+        max-width: 120px;
+      }
+    }
+
+    .h-right-contents {
+      .h-link {
+        margin: 0 8px;
+        padding: 5px;
+        text-decoration: none;
+        color: $theme-primary;
+      }
+      .h-link-active {
+      }
+    }
+  }
+}
+
+// Footer
+.footer {
+  position: absolute;
+  height: 90px;
+  background-color: #f0f0f0;
+  border-top: 1px solid #dfdfdf;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  .f-content {
+    margin: 22px 0 0;
+    text-align: center;
+    display: block;
+    .f-text {
+      margin: 0;
+      .f-copyright {
+        font-weight: 700;
+      }
+    }
+    .f-text-secondary {
+      margin: 0;
+    }
+  }
+}
