@@ -24,17 +24,19 @@ const Header = (props) => {
                 </Link>
               </div>
               <div className="h-right-contents">
-                {navLinks.map((link) => (
-                  <NavLink
-                    exact
-                    to={link.route}
-                    key={link.route}
-                    className="h-link"
-                    activeClassName="h-link-active"
-                  >
-                    {link.name}
-                  </NavLink>
-                ))}
+                <div className="h-links-container">
+                  {navLinks.map((link) => (
+                    <NavLink
+                      exact
+                      to={link.route}
+                      key={link.route}
+                      className="h-link"
+                      activeClassName="h-link-active"
+                    >
+                      {link.name}
+                    </NavLink>
+                  ))}
+                </div>
               </div>
             </div>
           </Toolbar>

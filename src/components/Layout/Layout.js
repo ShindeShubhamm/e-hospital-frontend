@@ -7,7 +7,6 @@ import Footer from './Footer';
 import Header from './Header';
 
 const navLinks = [
-  { name: 'Home', route: '/' },
   { name: 'Login', route: '/login' },
   { name: 'Signup', route: '/signup' },
 ];

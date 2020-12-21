@@ -52,13 +52,21 @@
     }
 
     .h-right-contents {
-      .h-link {
-        margin: 0 8px;
-        padding: 5px;
-        text-decoration: none;
-        color: $theme-primary;
+      .h-links-container {
+        .h-link {
+          margin: 0 8px;
+          padding: 8px 12px;
+          text-decoration: none;
+          color: $theme-primary;
+          border-radius: 4px;
+        }
+        .h-link-active {
+          background-color: $theme-primary;
+          color: #fff;
+        }
       }
-      .h-link-active {
+      @include scMax(600) {
+        display: none;
       }
     }
   }
