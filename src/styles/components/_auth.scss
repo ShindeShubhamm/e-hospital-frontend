@@ -1,0 +1,25 @@
+.auth-layout {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  .auth-logo {
+    max-width: 36%;
+    margin: 0 auto 20px;
+    display: block;
+    cursor: pointer;
+  }
+  .auth-heading {
+    font-size: 20px;
+    text-align: center;
+    color: $theme-primary;
+  }
+  .auth-links {
+    text-align: center;
+    a {
+      text-decoration: none;
+      color: $theme-primary;
+    }
+  }
+}

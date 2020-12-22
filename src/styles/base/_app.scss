@@ -5,6 +5,7 @@ html {
 body {
   margin: 0;
   font-family: $default-font;
+  background-color: #fff !important;
 }
 
 /* MEDIA QUERIES - Primary layout.
@@ -12,7 +13,7 @@ body {
 
 // max screen width
 @mixin scMax($screen) {
-  @media (max-width: $screen+"px") {
+  @media (max-width: $screen+'px') {
     @content;
   }
 }

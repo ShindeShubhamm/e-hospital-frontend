@@ -7,6 +7,28 @@
     padding: $navbar-padding 0 $footer-padding;
   }
 }
+// side links
+.l-side-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  margin-top: 100px;
+  .l-sidelink {
+    color: $theme-primary;
+    width: 50px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px;
+    width: 100%;
+    padding: 8px 0;
+    margin: 5px 0;
+  }
+  .l-sidelink-active {
+    background-color: $theme-primary;
+    color: #fff;
+  }
+}
 
 // Header
 .header {
@@ -59,10 +81,13 @@
           text-decoration: none;
           color: $theme-primary;
           border-radius: 4px;
+          &:hover {
+            color: $theme-light;
+          }
         }
         .h-link-active {
           background-color: $theme-primary;
-          color: #fff;
+          color: #fff !important;
         }
       }
       @include scMax(600) {

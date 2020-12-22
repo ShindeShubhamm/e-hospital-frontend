@@ -1,18 +1,19 @@
 /* BASE - Base Variable file.
 ========================================================================== */
-@import "base/_vars.scss";
-@import "base/_colors.scss";
-@import "base/_app.scss";
+@import 'base/_vars.scss';
+@import 'base/_colors.scss';
+@import 'base/_app.scss';
 
 /* FONTS - Fonts file.
 ========================================================================== */
-@import "fonts/_fonts.scss";
+@import 'fonts/_fonts.scss';
 
 /* FORMS - Form template and component css file.
 ========================================================================== */
-@import "forms/_template.scss";
-@import "forms/_elements.scss";
+@import 'forms/_template.scss';
+@import 'forms/_elements.scss';
 
 /* COMPONENTS - App components.
 ========================================================================== */
-@import "components/_layout.scss";
+@import 'components/_layout.scss';
+@import 'components/_auth.scss';

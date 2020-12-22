@@ -7,6 +7,7 @@ import Footer from './Footer';
 import Header from './Header';
 
 const navLinks = [
+  { name: 'Home', route: '/' },
   { name: 'Login', route: '/login' },
   { name: 'Signup', route: '/signup' },
 ];
@@ -21,14 +22,13 @@ const Layout = (props) => {
   return (
     <div className="layout">
       <Header navLinks={navLinks} handleDrawer={handleDrawer} />
-      <div className="l-children">
-        {props.children}
-      </div>
+      <div className="l-children">{props.children}</div>
       <Footer />
       <SwipeableDrawer
         open={drawer}
         onOpen={() => handleDrawer(true)}
         onClose={() => handleDrawer(false)}
+        className="l-sidebar"
       >
         <div className="l-side-links">
           {navLinks.map((link) => (
@@ -45,7 +45,7 @@ const Layout = (props) => {
           ))}
         </div>
       </SwipeableDrawer>
-    </div >
+    </div>
   );
 };
 
