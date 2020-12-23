@@ -2,16 +2,16 @@ import axios from 'axios';
 
 const api = process.env.REACT_APP_API_ENDPOINT;
 
-const ProfileAPI = {
+const UserAPI = {
   get: (id) => {
     return axios.get(`${api}/user/${id}`);
   },
   create: (data) => {
-    axios.post(`${api}/user`, data);
+    return axios.post(`${api}/user`, data);
   },
   update: (id, data) => {
-    axios.patch(`${api}/user/${id}`, data);
+    return axios.put(`${api}/user/${id}`, data);
   },
 };
 
-export default ProfileAPI;
+export default UserAPI;

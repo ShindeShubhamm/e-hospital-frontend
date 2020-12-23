@@ -1,5 +1,7 @@
 import ls from 'local-storage';
 
+import AuthAPI from '../../../api/AuthAPI';
+import UserAPI from '../../../api/UserAPI';
 import {
   ALERT_ERROR,
   ALERT_SET,
@@ -17,30 +19,28 @@ const setLoading = () => {
   };
 };
 
-export const authLogin = (data) => (dispatch) => {
-  setLoading();
+export const authLogin = (data) => async (dispatch) => {
   dispatch({
     type: BDROP_SET,
   });
   try {
-    setTimeout(() => {
-      const token = 'bsdfikkj-sdfjuidsf-sdfikdfsk';
-      dispatch({
-        type: AUTH_SUCCESS,
-        payload: {
-          userInfo: data,
-          token,
-        },
-      });
-      ls.set('token', token);
-      dispatch({
-        type: BDROP_UNSET,
-      });
-      dispatch({
-        type: ALERT_SET,
-        payload: { open: true, message: 'Login Successful', severity: 'success' },
-      });
-    }, 1000);
+    const res = await AuthAPI.login({ user: data });
+    const { token } = res.data;
+    dispatch({
+      type: AUTH_SUCCESS,
+      payload: {
+        userInfo: null, // To be added
+        token,
+      },
+    });
+    ls.set('token', token);
+    dispatch({
+      type: BDROP_UNSET,
+    });
+    dispatch({
+      type: ALERT_SET,
+      payload: { open: true, message: 'Login Successful', severity: 'success' },
+    });
   } catch (error) {
     dispatch({
       type: AUTH_ERROR,
@@ -60,4 +60,40 @@ export const authLogout = () => (dispatch) => {
   dispatch({
     type: AUTH_LOGOUT,
   });
+};
+
+export const authSignup = (data) => async (dispatch) => {
+  dispatch({
+    type: BDROP_SET,
+  });
+  try {
+    const res = await UserAPI.create({ user: data });
+    const { token } = res.data;
+    ls.set('token', token);
+    dispatch({
+      type: AUTH_SUCCESS,
+      payload: {
+        userInfo: null, // To be added
+        token,
+      },
+    });
+    dispatch({
+      type: BDROP_UNSET,
+    });
+    dispatch({
+      type: ALERT_SET,
+      payload: { open: true, message: 'Account created successfully.', severity: 'success' },
+    });
+  } catch (error) {
+    dispatch({
+      type: ALERT_ERROR,
+    });
+    dispatch({
+      type: AUTH_ERROR,
+      payload: { error: error.msg },
+    });
+    dispatch({
+      type: BDROP_UNSET,
+    });
+  }
 };

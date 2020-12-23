@@ -7,11 +7,11 @@ const AuthLayout = (props) => {
   return (
     <div className="auth-layout">
       <Container maxWidth="sm">
-        <Link to="/">
-          <img src="/images/rx_online.svg" alt="Rx.Online" className="auth-logo" />
-        </Link>
-        <h1 className="auth-heading">{props.type === 'login' ? 'Welcome Back!' : 'Join Now'}</h1>
         <div className="auth-children">
+          <Link to="/">
+            <img src="/images/rx_online.svg" alt="Rx.Online" className="auth-logo" />
+          </Link>
+          <h1 className="auth-heading">{props.type === 'login' ? 'Welcome Back!' : 'Join Now'}</h1>
           {props.children}
           {props.type === 'signup' ? (
             <p className="auth-links">

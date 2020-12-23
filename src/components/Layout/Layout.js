@@ -1,18 +1,27 @@
 import React, { useState } from 'react';
 
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
+import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 import Footer from './Footer';
 import Header from './Header';
 
-const navLinks = [
+const unauthedNavLinks = [
   { name: 'Home', route: '/' },
   { name: 'Login', route: '/login' },
   { name: 'Signup', route: '/signup' },
 ];
 
+const authedNavLinks = [
+  { name: 'Home', route: '/' },
+  { name: 'Dashboard', route: '/dashboard' },
+];
+
 const Layout = (props) => {
+  const { auth } = props;
+  const navLinks = auth.isAuthenticated ? authedNavLinks : unauthedNavLinks;
+
   const [drawer, setDrawer] = useState(false);
 
   const handleDrawer = (state) => {
@@ -49,4 +58,10 @@ const Layout = (props) => {
   );
 };
 
-export default Layout;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth,
+  };
+};
+
+export default connect(mapStateToProps)(Layout);

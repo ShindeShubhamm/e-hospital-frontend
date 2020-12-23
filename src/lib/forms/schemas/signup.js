@@ -53,6 +53,17 @@ export const signup = () => {
       },
       {
         component: 'textfield',
+        name: 'mobileNumber',
+        label: 'Mobile Number*',
+        placeholder: '+91 8888888888',
+        validate: [
+          {
+            type: 'required',
+          },
+        ],
+      },
+      {
+        component: 'textfield',
         name: 'password',
         label: 'Password*',
         placeholder: '********',

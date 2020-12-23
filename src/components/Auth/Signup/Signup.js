@@ -1,11 +1,16 @@
 import React from 'react';
 
+import { connect } from 'react-redux';
+
 import FormHandler from '../../../lib/forms';
+import { authSignup } from '../../../lib/redux/actions/authActions';
 import AuthLayout from '../AuthLayout';
 
 const Signup = (props) => {
+  const { onSignup, auth } = props;
+
   const handleSignup = (data) => {
-    // console.log(data)
+    onSignup(data);
   };
 
   return (
@@ -15,4 +20,16 @@ const Signup = (props) => {
   );
 };
 
-export default Signup;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSignup: (data) => dispatch(authSignup(data)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);

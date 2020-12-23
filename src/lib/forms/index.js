@@ -33,6 +33,9 @@ const FormHandler = (props) => {
       setCheck(true);
     }
     setErrors(new Array(schema.fields.length).fill(false));
+    return () => {
+      props.onClear(props.form);
+    };
   }, []);
 
   const handleSubmit = async (event) => {
@@ -77,10 +80,10 @@ const FormHandler = (props) => {
           {props.submitButton ? (
             props.submitButton
           ) : (
-              <Button className="ff-btn" type="submit" color="primary" variant="contained">
-                {props.submitButtonLabel}
-              </Button>
-            )}
+            <Button className="ff-btn" type="submit" color="primary" variant="contained">
+              {props.submitButtonLabel}
+            </Button>
+          )}
         </div>
       </form>
     </Fragment>

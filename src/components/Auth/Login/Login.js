@@ -10,9 +10,7 @@ const Login = (props) => {
   const { auth, onLogin } = props;
 
   const handleLogin = (data) => {
-    // eslint-disable-next-line
-    console.log(data);
-    // onLogin(userData);
+    onLogin(data);
   };
 
   return (
