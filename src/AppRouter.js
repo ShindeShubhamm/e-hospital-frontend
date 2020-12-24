@@ -6,6 +6,7 @@ import AuthedRoute from './AuthedRoute';
 import Login from './components/Auth/Login/Login';
 import Signup from './components/Auth/Signup/Signup';
 import Dashboard from './components/Dashboard/Dashboard';
+import Landing from './components/Landing/Landing';
 import Layout from './components/Layout/Layout';
 import UnauthedRoute from './UnauthedRoute';
 
@@ -18,7 +19,7 @@ const AppRouter = () => {
 
         {/* Routes Inside Default Layout */}
         <Layout>
-          <Route exact path="/" />
+          <Route exact path="/" component={Landing} />
           <AuthedRoute exact path="/dashboard" component={Dashboard} />
         </Layout>
       </Switch>
