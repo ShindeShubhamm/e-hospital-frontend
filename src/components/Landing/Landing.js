@@ -20,7 +20,7 @@ const Landing = (props) => {
     <div className="landing-page">
       <Container>
         <div className="">LandingPage</div>
-        {ipData && <h2>{ipData.geo.city}</h2>}
+        {ipData?.geo?.city && <h2>{ipData.geo?.city}</h2>}
       </Container>
     </div>
   );
