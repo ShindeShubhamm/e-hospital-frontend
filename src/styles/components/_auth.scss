@@ -1,11 +1,12 @@
 .auth-layout {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #fff;
   .auth-children {
     user-select: none;
+    margin: 20px 0;
     .auth-logo {
       max-width: 36%;
       margin: 0 auto 20px;
@@ -22,6 +23,14 @@
       a {
         text-decoration: none;
         color: $theme-primary;
+      }
+    }
+  }
+
+  @include scMax(600) {
+    .auth-children {
+      .auth-logo {
+        max-width: 40%;
       }
     }
   }
