@@ -24,7 +24,7 @@ export const authLogin = (data) => async (dispatch) => {
     type: BDROP_SET,
   });
   try {
-    const res = await AuthAPI.login({ user: data });
+    const res = await AuthAPI.login(data);
     const { token } = res.data;
     dispatch({
       type: AUTH_SUCCESS,
@@ -67,7 +67,7 @@ export const authSignup = (data) => async (dispatch) => {
     type: BDROP_SET,
   });
   try {
-    const res = await UserAPI.create({ user: data });
+    const res = await UserAPI.create(data);
     const { token } = res.data;
     ls.set('token', token);
     dispatch({
