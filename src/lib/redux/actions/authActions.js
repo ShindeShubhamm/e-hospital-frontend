@@ -12,6 +12,7 @@ import {
   AUTH_SUCCESS,
   BDROP_SET,
   BDROP_UNSET,
+  OVERLAY_UNSET,
 } from './types';
 
 const setLoading = () => {
@@ -76,6 +77,13 @@ export const loadUser = () => async (dispatch) => {
   const token = ls.get('token');
   setAxiosToken(token);
 
+  if (!token) {
+    dispatch({
+      type: OVERLAY_UNSET,
+    });
+    return;
+  }
+
   try {
     const res = await AuthAPI.getUser();
     const { user } = res.data;
@@ -86,10 +94,16 @@ export const loadUser = () => async (dispatch) => {
         token,
       },
     });
+    dispatch({
+      type: OVERLAY_UNSET,
+    });
   } catch (error) {
     dispatch({
       type: AUTH_ERROR,
       payload: { error: error.response },
+    });
+    dispatch({
+      type: OVERLAY_UNSET,
     });
   }
 };

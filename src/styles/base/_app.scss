@@ -17,3 +17,49 @@ body {
     @content;
   }
 }
+
+/* SCREEN OVERLAY - Screen overlay with logo.
+========================================================================== */
+@keyframes loadingBar {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 90%;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+.screen-overlay {
+  .MuiBackdrop-root {
+    background-color: #fff;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+  .so-content {
+    max-width: 200px;
+    .so-logo {
+      max-width: 100%;
+      margin-bottom: 10px;
+    }
+    .so-loading {
+      width: 100%;
+      height: 8px;
+      position: relative;
+      background-color: #e0e0e0;
+      border-radius: 5px;
+      .so-loading-bar {
+        position: absolute;
+        height: 100%;
+        width: 30px;
+        border-radius: 5px;
+        background-color: red;
+        animation: linear infinite;
+        animation-name: loadingBar;
+        animation-duration: 1.5s;
+      }
+    }
+  }
+}

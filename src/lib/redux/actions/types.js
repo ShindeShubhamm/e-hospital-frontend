@@ -16,3 +16,7 @@ export const ALERT_ERROR = 'ALERT_ERROR';
 // FORM ACTIONS
 export const FORM_SET_DATA = 'FORM_SET_DATA';
 export const FORM_RESET = 'FORM_RESET';
+
+// OVERLAY ACTIONS
+export const OVERLAY_SET = 'OVERLAY_SET';
+export const OVERLAY_UNSET = 'OVERLAY_UNSET';
