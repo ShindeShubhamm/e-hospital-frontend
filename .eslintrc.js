@@ -3,19 +3,13 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: [
-    'plugin:react/recommended',
-    'airbnb',
-  ],
+  extends: ['plugin:react/recommended', 'airbnb'],
   parserOptions: {
     ecmaFeatures: { jsx: true },
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: [
-    'react',
-    'import',
-  ],
+  plugins: ['react', 'import'],
   rules: {
     'arrow-body-style': 'off',
     'max-classes-per-file': ['off'],
@@ -48,10 +42,7 @@ module.exports = {
     'react/require-default-props': 'off',
     'no-param-reassign': 'off',
     'no-underscore-dangle': 'off',
-    'no-plusplus': [
-      2,
-      { allowForLoopAfterthoughts: true },
-    ],
+    'no-plusplus': [2, { allowForLoopAfterthoughts: true }],
     'import/export': 'off',
     'react/jsx-fragments': ['off', 'element'],
     'react/jsx-one-expression-per-line': ['off'],
@@ -89,19 +80,20 @@ module.exports = {
     ],
     'react/jsx-max-props-per-line': ['error'],
     'no-multi-spaces': 'error',
-    'react/jsx-tag-spacing': ['error', {
-      closingSlash: 'never',
-      beforeSelfClosing: 'always',
-      afterOpening: 'never',
-    }],
-    'sort-imports': [
+    'react/jsx-tag-spacing': [
       'error',
-      { ignoreDeclarationSort: true },
+      {
+        closingSlash: 'never',
+        beforeSelfClosing: 'always',
+        afterOpening: 'never',
+      },
     ],
+    'sort-imports': ['error', { ignoreDeclarationSort: true }],
     'no-shadow': 'off',
     indent: 'off',
     'import/no-named-as-default-member': 'off',
     'import/no-named-as-default': 'off',
     'react/jsx-indent': 'off',
+    'object-curly-newline': 'off',
   },
 };

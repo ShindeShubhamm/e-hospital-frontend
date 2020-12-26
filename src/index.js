@@ -10,6 +10,12 @@ import store from './lib/redux/store';
 import reportWebVitals from './reportWebVitals';
 import { AppTheme } from './theme';
 
+window.addEventListener('storage', (event) => {
+  if (event.key === 'token') {
+    location.reload();
+  }
+});
+
 const AppIndex = () => {
   return (
     <ThemeProvider theme={AppTheme}>

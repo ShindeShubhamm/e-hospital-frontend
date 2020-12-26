@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import Container from '@material-ui/core/Container';
 
-import { getDataByIP } from '../../utils/ipLocation';
+import getDataByIP from '../../utils/ipLocation';
 
 const Landing = (props) => {
   const [ipData, setIpData] = useState();

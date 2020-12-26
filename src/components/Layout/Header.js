@@ -21,7 +21,7 @@ const ElevateScroll = (props) => {
 };
 
 const Header = (props) => {
-  const { navLinks, handleDrawer } = props;
+  const { navLinks, handleDrawer, auth, onLogout } = props;
 
   return (
     <div className="header">
@@ -55,6 +55,11 @@ const Header = (props) => {
                         {link.name}
                       </NavLink>
                     ))}
+                    {auth?.isAuthenticated && (
+                      <button type="button" onClick={onLogout}>
+                        Logout
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>

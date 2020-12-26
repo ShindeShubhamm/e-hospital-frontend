@@ -4,6 +4,7 @@ import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
+import { authLogout } from '../../lib/redux/actions/authActions';
 import Footer from './Footer';
 import Header from './Header';
 
@@ -19,7 +20,7 @@ const authedNavLinks = [
 ];
 
 const Layout = (props) => {
-  const { auth } = props;
+  const { auth, onLogout } = props;
   const navLinks = auth.isAuthenticated ? authedNavLinks : unauthedNavLinks;
 
   const [drawer, setDrawer] = useState(false);
@@ -30,7 +31,7 @@ const Layout = (props) => {
 
   return (
     <div className="layout">
-      <Header navLinks={navLinks} handleDrawer={handleDrawer} />
+      <Header auth={auth} onLogout={onLogout} navLinks={navLinks} handleDrawer={handleDrawer} />
       <div className="l-children">{props.children}</div>
       <Footer />
       <SwipeableDrawer
@@ -64,4 +65,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Layout);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onLogout: () => dispatch(authLogout()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Layout);

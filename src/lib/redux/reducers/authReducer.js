@@ -1,14 +1,11 @@
-import {
-  AUTH_ERROR,
-  AUTH_LOADING,
-  AUTH_LOGOUT,
-  AUTH_SUCCESS,
-} from '../actions/types';
+import ls from 'local-storage';
+
+import { AUTH_ERROR, AUTH_LOADING, AUTH_LOGOUT, AUTH_SUCCESS } from '../actions/types';
 
 const initialState = {
   userInfo: null,
   isAuthenticated: false,
-  token: null,
+  token: ls.get('token'),
   error: null,
   loading: false,
 };
@@ -21,6 +18,7 @@ const authReducer = (state = initialState, action) => {
         loading: true,
       };
     case AUTH_SUCCESS:
+      ls.set('token', action.payload.token);
       return {
         ...state,
         ...action.payload,
@@ -29,6 +27,7 @@ const authReducer = (state = initialState, action) => {
         loading: false,
       };
     case AUTH_ERROR:
+      ls.remove('token');
       return {
         ...state,
         ...action.payload,
@@ -38,6 +37,7 @@ const authReducer = (state = initialState, action) => {
         loading: false,
       };
     case AUTH_LOGOUT:
+      ls.remove('token');
       return {
         userInfo: null,
         isAuthenticated: false,
