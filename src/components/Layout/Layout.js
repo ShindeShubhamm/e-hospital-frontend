@@ -20,7 +20,7 @@ const authedNavLinks = [
 ];
 
 const Layout = (props) => {
-  const { auth, onLogout } = props;
+  const { auth, onLogout, headerProps } = props;
   const navLinks = auth.isAuthenticated ? authedNavLinks : unauthedNavLinks;
 
   const [drawer, setDrawer] = useState(false);
@@ -31,7 +31,13 @@ const Layout = (props) => {
 
   return (
     <div className="layout">
-      <Header auth={auth} onLogout={onLogout} navLinks={navLinks} handleDrawer={handleDrawer} />
+      <Header
+        auth={auth}
+        onLogout={onLogout}
+        navLinks={navLinks}
+        handleDrawer={handleDrawer}
+        {...headerProps}
+      />
       <div className="l-children">{props.children}</div>
       <Footer />
       <SwipeableDrawer
@@ -69,6 +75,10 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onLogout: () => dispatch(authLogout()),
   };
+};
+
+Layout.defaultProps = {
+  navbarColor: '#fff',
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Layout);

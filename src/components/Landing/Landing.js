@@ -7,13 +7,17 @@ import getDataByIP from '../../utils/ipLocation';
 const Landing = (props) => {
   const [ipData, setIpData] = useState();
 
-  const setLocationData = async () => {
-    const data = await getDataByIP();
-    setIpData(data);
-  };
-
   useEffect(() => {
-    setLocationData();
+    let isActive = true;
+    (async () => {
+      const data = await getDataByIP();
+      if (isActive) {
+        setIpData(data);
+      }
+    })();
+    return () => {
+      isActive = false;
+    };
   }, []);
 
   return (
