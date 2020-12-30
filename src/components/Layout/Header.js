@@ -1,11 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 
 import AppBar from '@material-ui/core/AppBar';
 import Container from '@material-ui/core/Container';
+import ListItem from '@material-ui/core/ListItem';
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import { MdMenu } from 'react-icons/md';
 import { Link, NavLink } from 'react-router-dom';
+
+import Dropdown from '../common/Dropdown';
+
+const api = process.env.REACT_APP_API_ENDPOINT;
 
 const useStyles = makeStyles({
   appBar: {
@@ -15,6 +20,7 @@ const useStyles = makeStyles({
 
 const Header = (props) => {
   const { navLinks, handleDrawer, auth, onLogout, navbarColor } = props;
+  const { isAuthenticated, userInfo } = auth;
   const classes = useStyles({ color: navbarColor });
   const [headerClass, setHeaderClass] = useState('');
 
@@ -55,12 +61,37 @@ const Header = (props) => {
                       {link.name}
                     </NavLink>
                   ))}
-                  {auth?.isAuthenticated && (
-                    <button type="button" onClick={onLogout}>
-                      Logout
-                    </button>
-                  )}
                 </div>
+                {isAuthenticated && (
+                  <Dropdown
+                    className="h-profile"
+                    primary={
+                      // eslint-disable-next-line
+                      <div className="h-photo">
+                        {userInfo?.profilePhoto ? (
+                          <img
+                            src={`${api}/file/${userInfo.profilePhoto}`}
+                            alt={userInfo.firstName}
+                            className="h-image"
+                          />
+                        ) : (
+                          <div className="h-image-alt">
+                            {userInfo.firstName?.charAt(0)}
+                            {userInfo.lastName?.charAt(0)}
+                          </div>
+                        )}
+                      </div>
+                    }
+                    secondary={
+                      // eslint-disable-next-line
+                      <Fragment>
+                        <ListItem onClick={onLogout} button>
+                          Logout
+                        </ListItem>
+                      </Fragment>
+                    }
+                  />
+                )}
               </div>
             </div>
           </Toolbar>

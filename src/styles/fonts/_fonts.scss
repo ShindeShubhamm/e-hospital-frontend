@@ -1,61 +1,75 @@
-/* FONT - Proxima Nova.
+/* FONT - Roboto.
 ========================================================================== */
 @font-face {
-  font-family: "Proxima";
-  src: url("./Proxima/regular.woff2") format("woff2"),
-    url("./Proxima/regular.ttf") format("truetype");
+  font-family: 'Roboto';
+  src: url('./Roboto/thin.woff2') format('woff2'), url('./Roboto/thin.ttf') format('truetype');
+  font-weight: 100;
   font-display: swap;
 }
 @font-face {
-  font-family: "Proxima Semibold";
-  src: url("./Proxima/semibold.woff2") format("woff2"),
-    url("./Proxima/semibold.ttf") format("truetype");
+  font-family: 'Roboto';
+  src: url('./Roboto/light.woff2') format('woff2'), url('./Roboto/light.ttf') format('truetype');
+  font-weight: 300;
   font-display: swap;
 }
 @font-face {
-  font-family: "Proxima Bold";
-  src: url("./Proxima/bold.woff2") format("woff2"), url("./Proxima/bold.ttf") format("truetype");
+  font-family: 'Roboto';
+  src: url('./Roboto/regular.woff2') format('woff2'), url('./Roboto/regular.ttf') format('truetype');
+  font-weight: 400;
   font-display: swap;
 }
 @font-face {
-  font-family: "Proxima Italic";
-  src: url("./Proxima/italic.woff2") format("woff2"), url("./Proxima/italic.ttf") format("truetype");
+  font-family: 'Roboto';
+  src: url('./Roboto/medium.woff2') format('woff2'), url('./Roboto/medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('./Roboto/bold.woff2') format('woff2'), url('./Roboto/bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('./Roboto/black.woff2') format('woff2'), url('./Roboto/black.ttf') format('truetype');
+  font-weight: 900;
   font-display: swap;
 }
 
 /* FONT - Spectral.
 ========================================================================== */
 @font-face {
-  font-family: "Spectral Light";
-  src: url("./Spectral/light.woff2") format("woff2"), url("./Spectral/light.ttf") format("truetype");
+  font-family: 'Spectral Light';
+  src: url('./Spectral/light.woff2') format('woff2'), url('./Spectral/light.ttf') format('truetype');
   font-display: swap;
 }
 @font-face {
-  font-family: "Spectral";
-  src: url("./Spectral/regular.woff2") format("woff2"),
-    url("./Spectral/regular.ttf") format("truetype");
+  font-family: 'Spectral';
+  src: url('./Spectral/regular.woff2') format('woff2'),
+    url('./Spectral/regular.ttf') format('truetype');
   font-display: swap;
 }
 @font-face {
-  font-family: "Spectral Medium";
-  src: url("./Spectral/medium.woff2") format("woff2"),
-    url("./Spectral/medium.ttf") format("truetype");
+  font-family: 'Spectral Medium';
+  src: url('./Spectral/medium.woff2') format('woff2'),
+    url('./Spectral/medium.ttf') format('truetype');
   font-display: swap;
 }
 @font-face {
-  font-family: "Spectral Semibold";
-  src: url("./Spectral/semibold.woff2") format("woff2"),
-    url("./Spectral/semibold.ttf") format("truetype");
+  font-family: 'Spectral Semibold';
+  src: url('./Spectral/semibold.woff2') format('woff2'),
+    url('./Spectral/semibold.ttf') format('truetype');
   font-display: swap;
 }
 @font-face {
-  font-family: "Spectral Bold";
-  src: url("./Spectral/bold.woff2") format("woff2"), url("./Spectral/bold.ttf") format("truetype");
+  font-family: 'Spectral Bold';
+  src: url('./Spectral/bold.woff2') format('woff2'), url('./Spectral/bold.ttf') format('truetype');
   font-display: swap;
 }
 @font-face {
-  font-family: "Spectral Italic";
-  src: url("./Spectral/italic.woff2") format("woff2"),
-    url("./Spectral/italic.ttf") format("truetype");
+  font-family: 'Spectral Italic';
+  src: url('./Spectral/italic.woff2') format('woff2'),
+    url('./Spectral/italic.ttf') format('truetype');
   font-display: swap;
 }
