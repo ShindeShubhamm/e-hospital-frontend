@@ -39,7 +39,7 @@
     box-shadow: none;
   }
   .scrolled {
-    box-shadow: 0px 2px 5px #d0d4d9;
+    box-shadow: $box-shadow;
     background-color: #fff;
   }
   .MuiToolbar-root {
@@ -115,6 +115,7 @@
           .h-image-alt {
             background-color: #aa0c14;
             text-transform: uppercase;
+            font-weight: 500;
             display: flex;
             align-items: center;
             justify-content: center;

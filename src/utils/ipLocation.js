@@ -1,20 +1,16 @@
 import axios from 'axios';
 
-const API_KEY = process.env.REACT_APP_ASTRO_IP_API_KEY;
-const ipUrl = 'https://jsonip.com';
+const API_KEY = process.env.REACT_APP_IP_LOCATION_API_KEY;
+const url = `https://api.ipregistry.co?key=${API_KEY}`;
 
 const getDataByIP = async () => {
   try {
-    const ipRes = await axios.get(ipUrl, {
+    const res = await axios.get(url, {
       transformRequest: (data, headers) => {
         delete headers.common['auth-token'];
       },
     });
-    if (ipRes.status === 200 && ipRes.data.ip) {
-      const url = `https://api.astroip.co/${ipRes.data.ip}?api_key=${API_KEY}`;
-      const res = await axios.get(url);
-      return res.data;
-    }
+    return res.data;
   } catch (error) {
     return {};
   }

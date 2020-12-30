@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 
 import AppBar from '@material-ui/core/AppBar';
 import Container from '@material-ui/core/Container';
+import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -85,9 +86,11 @@ const Header = (props) => {
                     secondary={
                       // eslint-disable-next-line
                       <Fragment>
-                        <ListItem onClick={onLogout} button>
-                          Logout
-                        </ListItem>
+                        <List dense>
+                          <ListItem onClick={onLogout} button>
+                            Logout
+                          </ListItem>
+                        </List>
                       </Fragment>
                     }
                   />

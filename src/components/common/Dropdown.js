@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 
 import Box from '@material-ui/core/Box';
-import List from '@material-ui/core/List';
 import Popover from '@material-ui/core/Popover';
 import PopupState, { bindPopover, bindTrigger } from 'material-ui-popup-state';
 
@@ -19,12 +18,9 @@ const Dropdown = (props) => {
               {...bindPopover(popupState)}
               anchorOrigin={anchorOrigin}
               transformOrigin={transformOrigin}
+              className="ui-popover"
             >
-              <Box>
-                <List onClick={popupState.close} dense>
-                  {secondary}
-                </List>
-              </Box>
+              <Box onClick={popupState.close}>{secondary}</Box>
             </Popover>
           </Fragment>
         )}
