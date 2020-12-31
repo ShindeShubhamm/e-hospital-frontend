@@ -6,27 +6,14 @@ import { connect } from 'react-redux';
 
 import { clearFormData, setFormData } from '../redux/actions/formActions';
 import ComponentMapper from './ComponentMapper';
-import { login, signup } from './schemas';
+import getSchema from './schemas';
 import { validateRequired } from './validations';
-
-const handleForm = (schemaName) => {
-  switch (schemaName) {
-    case 'LOGIN':
-      return { schema: login(), state: 'loginState' };
-    case 'SIGNUP':
-      return { schema: signup(), state: 'signupState' };
-    default:
-      return { schema: { fields: [] }, state: '' };
-  }
-};
 
 const FormHandler = (props) => {
   const [errors, setErrors] = useState([]);
   const [check, setCheck] = useState(false);
-  const formDetails = handleForm(props.form);
-  const { state } = formDetails;
-  const schema = props.schema || formDetails.schema;
-  const formState = props[state];
+  const schema = props.schema || getSchema(props.form);
+  const { formState } = props;
 
   useEffect(() => {
     if (!isEmpty(formState) && !props.noInitialChecks) {
@@ -34,7 +21,7 @@ const FormHandler = (props) => {
     }
     setErrors(new Array(schema.fields.length).fill(false));
     return () => {
-      props.onClear(props.form);
+      props.onClear();
     };
   }, []);
 
@@ -67,7 +54,6 @@ const FormHandler = (props) => {
                 {...field}
                 index={index}
                 setFormData={props.onFormData}
-                formName={props.form}
                 value={formState[field.name] ?? ''}
                 handleErrors={handleErrors}
                 check={check}
@@ -100,15 +86,14 @@ FormHandler.defaultProps = {
 
 const mapStateToProps = (state) => {
   return {
-    signupState: state.signupForm,
-    loginState: state.loginForm,
+    formState: state.form,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onFormData: (formName, data) => dispatch(setFormData(formName, data)),
-    onClear: (formName) => dispatch(clearFormData(formName)),
+    onFormData: (data) => dispatch(setFormData(data)),
+    onClear: () => dispatch(clearFormData()),
   };
 };
 

@@ -33,7 +33,7 @@ const ComponentMapper = (props) => {
 
   // If event is received
   const onChange = (event) => {
-    props.setFormData(props.formName, {
+    props.setFormData({
       [event.target.name]: event.target.value,
     });
     handleValidation(event.target.value);
@@ -41,7 +41,7 @@ const ComponentMapper = (props) => {
 
   // If directly data is received
   const onData = (value) => {
-    props.setFormData(props.formName, {
+    props.setFormData({
       [props.name]: value,
     });
     handleValidation(value);
@@ -74,11 +74,7 @@ const ComponentMapper = (props) => {
     radio: <Radio {...eventElementProps} />,
   };
 
-  return (
-    <Fragment>
-      {components[props.component]}
-    </Fragment>
-  );
+  return <Fragment>{components[props.component]}</Fragment>;
 };
 
 export default ComponentMapper;

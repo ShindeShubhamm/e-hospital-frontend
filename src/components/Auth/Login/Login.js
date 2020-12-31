@@ -15,7 +15,7 @@ const Login = (props) => {
 
   return (
     <AuthLayout type="login">
-      <FormHandler form="LOGIN" onSubmit={handleLogin} submitButtonLabel="Login" />
+      <FormHandler form="LOGIN" onSubmit={handleLogin} submitButtonLabel="Login" noInitialChecks />
     </AuthLayout>
   );
 };

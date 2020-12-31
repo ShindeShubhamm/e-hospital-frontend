@@ -1,19 +1,14 @@
-import {
-  FORM_RESET,
-  FORM_SET_DATA,
-} from './types';
+import { FORM_RESET, FORM_SET_DATA } from './types';
 
-export const setFormData = (formName, data) => (dispatch) => {
+export const setFormData = (data) => (dispatch) => {
   dispatch({
     type: FORM_SET_DATA,
     payload: data,
-    name: formName,
   });
 };
 
-export const clearFormData = (formName) => (dispatch) => {
+export const clearFormData = () => (dispatch) => {
   dispatch({
     type: FORM_RESET,
-    name: formName,
   });
 };

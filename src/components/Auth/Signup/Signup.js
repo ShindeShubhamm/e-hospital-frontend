@@ -15,7 +15,12 @@ const Signup = (props) => {
 
   return (
     <AuthLayout type="signup">
-      <FormHandler form="SIGNUP" onSubmit={handleSignup} submitButtonLabel="Signup" />
+      <FormHandler
+        form="SIGNUP"
+        onSubmit={handleSignup}
+        submitButtonLabel="Signup"
+        noInitialChecks
+      />
     </AuthLayout>
   );
 };

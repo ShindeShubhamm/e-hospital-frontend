@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 import authReducer from './authReducer';
 import backdropReducer from './backdropReducer';
-import createFormReducer from './formReducer';
+import formReducer from './formReducer';
 import overlayReducer from './overlayReducer';
 import snackbarReducer from './snackbarReducer';
 
@@ -11,6 +11,5 @@ export default combineReducers({
   backdrop: backdropReducer,
   snackbar: snackbarReducer,
   overlay: overlayReducer,
-  signupForm: createFormReducer('SIGNUP'),
-  loginForm: createFormReducer('LOGIN'),
+  form: formReducer,
 });
