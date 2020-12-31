@@ -1,9 +1,4 @@
-import {
-  FormControl,
-  FormHelperText,
-  Grid,
-  TextField as MuiTextField,
-} from '@material-ui/core';
+import { FormControl, FormHelperText, Grid, TextField as MuiTextField } from '@material-ui/core';
 
 const TextField = (props) => {
   const { meta } = props;
@@ -35,6 +30,9 @@ const TextField = (props) => {
             placeholder={props.placeholder}
             size={props.textFieldSize}
             fullWidth
+            InputProps={{
+              readOnly: props.readOnly,
+            }}
           />
           <FormHelperText id={`${props.name}-helper-text`}>{props.helperText}</FormHelperText>
         </FormControl>

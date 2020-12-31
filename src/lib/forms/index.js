@@ -1,9 +1,9 @@
 import React, { Fragment, useEffect, useState } from 'react';
 
 import { Button, Grid } from '@material-ui/core';
-import isEmpty from 'lodash/isEmpty';
 import { connect } from 'react-redux';
 
+import ErrorAPI from '../../api/ErrorLogAPI';
 import { clearFormData, setFormData } from '../redux/actions/formActions';
 import ComponentMapper from './ComponentMapper';
 import getSchema from './schemas';
@@ -16,14 +16,17 @@ const FormHandler = (props) => {
   const { formState } = props;
 
   useEffect(() => {
-    if (!isEmpty(formState) && !props.noInitialChecks) {
-      setCheck(true);
-    }
     setErrors(new Array(schema.fields.length).fill(false));
     return () => {
       props.onClear();
     };
   }, []);
+
+  useEffect(() => {
+    if (props.populateData) {
+      props.onFormData(props.populateData);
+    }
+  }, [props.populateData]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -34,7 +37,12 @@ const FormHandler = (props) => {
         props.onSubmit(formState);
       }
     } catch (error) {
-      // To be put in db.
+      ErrorAPI.log({
+        errorDetail: error.response,
+        errorPage: props.form,
+        errorComponentName: 'FormHandler',
+        errorFunctionName: 'handleSubmit',
+      });
     } finally {
       setCheck(false);
     }
@@ -81,7 +89,6 @@ FormHandler.defaultProps = {
   submitButtonLabel: 'Submit',
   className: '',
   buttonClassName: '',
-  noInitialChecks: false,
 };
 
 const mapStateToProps = (state) => {

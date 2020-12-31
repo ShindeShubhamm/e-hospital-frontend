@@ -8,6 +8,7 @@ import Signup from './components/Auth/Signup/Signup';
 import Dashboard from './components/Dashboard/Dashboard';
 import Landing from './components/Landing/Landing';
 import Layout from './components/Layout/Layout';
+import Registration from './components/Registration/Registration';
 import UnauthedRoute from './UnauthedRoute';
 
 const AppRouter = () => {
@@ -21,6 +22,7 @@ const AppRouter = () => {
         <Layout headerProps={{ navbarColor: '#f5f7f9' }}>
           <Route exact path="/" component={Landing} />
           <AuthedRoute exact path="/dashboard" component={Dashboard} />
+          <AuthedRoute exact path="/doctor/add" component={Registration} />
         </Layout>
       </Switch>
     </BrowserRouter>
