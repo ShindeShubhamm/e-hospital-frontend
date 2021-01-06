@@ -84,18 +84,18 @@
       align-items: center;
       .h-links-container {
         .h-link {
-          margin: 0 8px;
-          padding: 8px 12px;
+          margin: 0 20px;
+          padding: 8px 0px;
           text-decoration: none;
-          color: $theme-primary;
-          border-radius: 4px;
+          font-weight: 400;
+          color: #121c21;
           &:hover {
             color: $theme-light;
           }
         }
         .h-link-active {
-          background-color: $theme-primary;
-          color: #fff !important;
+          border-bottom: 1px solid $theme-primary;
+          color: $theme-primary;
         }
       }
       .h-profile {
@@ -113,7 +113,7 @@
             object-fit: cover;
           }
           .h-image-alt {
-            background-color: #aa0c14;
+            background-color: #039c49;
             text-transform: uppercase;
             font-weight: 500;
             display: flex;
@@ -123,7 +123,7 @@
             height: 100%;
             user-select: none;
             font-size: 18px;
-            font-family: 'Roboto';
+            font-family: 'Inter';
             color: #fff;
             letter-spacing: 1px;
           }

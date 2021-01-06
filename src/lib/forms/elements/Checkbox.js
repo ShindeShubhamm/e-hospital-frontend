@@ -34,10 +34,16 @@ const Checkbox = (props) => {
       lg={props.grid.lg}
       xl={props.grid.xl}
     >
-      <div className={`ff-component-container ${props.className}`} style={{ ...props.style }}>
-        <FormControl className="ff-textfield" error={!!meta.error && meta.touched}>
+      <div
+        className={`ff-component-container ${props.className}`}
+        style={{ ...props.style }}
+      >
+        <FormControl
+          className="ff-textfield"
+          error={!!meta.error && meta.touched}
+        >
           <FormControlLabel
-            control={(
+            control={
               <Muicheckbox
                 onClick={handleChange}
                 value={checkValue}
@@ -46,13 +52,17 @@ const Checkbox = (props) => {
                 size={props.size}
                 checked={checkValue}
               />
-            )}
+            }
             label={props.label}
             labelPlacement={props.labelPlacement}
           />
-          <FormHelperText id={`${props.name}-helper-text`}>{props.helperText}</FormHelperText>
+          <FormHelperText id={`${props.name}-helper-text`}>
+            {props.helperText}
+          </FormHelperText>
           {meta.error && meta.touched && (
-            <FormHelperText id={`${props.name}-Error`}>{meta.error}</FormHelperText>
+            <FormHelperText id={`${props.name}-Error`}>
+              {meta.error}
+            </FormHelperText>
           )}
         </FormControl>
       </div>

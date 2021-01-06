@@ -7,7 +7,7 @@ import {
   payloadSize,
   required,
   url,
-  minChars
+  minChars,
 } from './validation-types';
 
 // Validating single field
@@ -49,7 +49,9 @@ export const isValid = async ({ validate: validations, label }, value) => {
 
 // Validating all fields
 export const validateRequired = async (fields = [], values = {}) => {
-  const requiredFields = fields.filter((f) => (!f.validate ? false : f.validate.some((v) => v.type === 'required')));
+  const requiredFields = fields.filter((f) =>
+    !f.validate ? false : f.validate.some((v) => v.type === 'required'),
+  );
   // eslint-disable-next-line
   for (let field of requiredFields) {
     const result = await isValid(field, values[field.name]);

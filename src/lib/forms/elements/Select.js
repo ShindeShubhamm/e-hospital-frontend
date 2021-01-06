@@ -17,7 +17,10 @@ const Select = (props) => {
       lg={props.grid.lg}
       xl={props.grid.xl}
     >
-      <div className={`ff-component-container ${props.className}`} style={{ ...props.style }}>
+      <div
+        className={`ff-component-container ${props.className}`}
+        style={{ ...props.style }}
+      >
         <FormControl className="ff-textfield">
           <label htmlFor={props.name} className="ff-component-label">
             {props.label}
@@ -39,18 +42,24 @@ const Select = (props) => {
             {props.options.map((option) => (
               <MenuItem key={option.value} value={option.value}>
                 <span className="ff-select-item">
-                  {option.icon
-                    && (typeof option.icon === 'string' ? (
-                      <img src={option.icon} className="ff-select-icon" alt="" />
+                  {option.icon &&
+                    (typeof option.icon === 'string' ? (
+                      <img
+                        src={option.icon}
+                        className="ff-select-icon"
+                        alt=""
+                      />
                     ) : (
-                        option.icon
-                      ))}
+                      option.icon
+                    ))}
                   {option.label}
                 </span>
               </MenuItem>
             ))}
           </MuiSelect>
-          <FormHelperText id={`${props.name}-helper-text`}>{props.helperText}</FormHelperText>
+          <FormHelperText id={`${props.name}-helper-text`}>
+            {props.helperText}
+          </FormHelperText>
           {meta.error && meta.touched && (
             <div>
               <span className="ff-error">{meta.error}</span>

@@ -1,4 +1,9 @@
-import { FormControl, FormHelperText, Grid, TextField as MuiTextField } from '@material-ui/core';
+import {
+  FormControl,
+  FormHelperText,
+  Grid,
+  TextField as MuiTextField,
+} from '@material-ui/core';
 
 const TextField = (props) => {
   const { meta } = props;
@@ -12,7 +17,10 @@ const TextField = (props) => {
       lg={props.grid.lg}
       xl={props.grid.xl}
     >
-      <div className={`ff-component-container ${props.className}`} style={{ ...props.style }}>
+      <div
+        className={`ff-component-container ${props.className}`}
+        style={{ ...props.style }}
+      >
         <FormControl className="ff-textfield">
           <label htmlFor={props.name} className="ff-component-label">
             {props.label}
@@ -34,7 +42,9 @@ const TextField = (props) => {
               readOnly: props.readOnly,
             }}
           />
-          <FormHelperText id={`${props.name}-helper-text`}>{props.helperText}</FormHelperText>
+          <FormHelperText id={`${props.name}-helper-text`}>
+            {props.helperText}
+          </FormHelperText>
         </FormControl>
       </div>
     </Grid>

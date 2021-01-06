@@ -18,9 +18,14 @@ const Radio = (props) => {
       lg={props.grid.lg}
       xl={props.grid.xl}
     >
-      <div className={`ff-component-container ${props.className}`} style={{ ...props.style }}>
+      <div
+        className={`ff-component-container ${props.className}`}
+        style={{ ...props.style }}
+      >
         <FormControl component="fieldset" className="ff-textfield">
-          <label htmlFor={props.name} className="ff-component-label">{props.label}</label>
+          <label htmlFor={props.name} className="ff-component-label">
+            {props.label}
+          </label>
           <RadioGroup
             name={props.name}
             onChange={props.onChange}
@@ -32,14 +37,20 @@ const Radio = (props) => {
                 key={index}
                 value={option.value}
                 control={
-                  <MuiRadio id={`${props.name}-${index}`} color="primary" size={props.size} />
+                  <MuiRadio
+                    id={`${props.name}-${index}`}
+                    color="primary"
+                    size={props.size}
+                  />
                 }
                 label={option.label}
                 labelPlacement={props.labelPlacement}
               />
             ))}
           </RadioGroup>
-          <FormHelperText id={`${props.name}-helper-text`}>{props.helperText}</FormHelperText>
+          <FormHelperText id={`${props.name}-helper-text`}>
+            {props.helperText}
+          </FormHelperText>
           {meta.error && meta.touched && (
             <div>
               <span className="ff-error">{meta.error}</span>

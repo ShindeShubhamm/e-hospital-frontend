@@ -5,7 +5,13 @@ import Popover from '@material-ui/core/Popover';
 import PopupState, { bindPopover, bindTrigger } from 'material-ui-popup-state';
 
 const Dropdown = (props) => {
-  const { primary, secondary, anchorOrigin, transformOrigin, className } = props;
+  const {
+    primary,
+    secondary,
+    anchorOrigin,
+    transformOrigin,
+    className,
+  } = props;
 
   return (
     <div className={className}>

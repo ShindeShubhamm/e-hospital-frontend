@@ -1,8 +1,4 @@
-import {
-  ALERT_ERROR,
-  ALERT_SET,
-  ALERT_UNSET,
-} from '../actions/types';
+import { ALERT_ERROR, ALERT_SET, ALERT_UNSET } from '../actions/types';
 
 const initialState = {
   open: false,

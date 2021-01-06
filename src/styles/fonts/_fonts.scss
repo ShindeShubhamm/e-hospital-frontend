@@ -1,75 +1,82 @@
-/* FONT - Roboto.
+/* FONT - Inter.
 ========================================================================== */
 @font-face {
-  font-family: 'Roboto';
-  src: url('./Roboto/thin.woff2') format('woff2'), url('./Roboto/thin.ttf') format('truetype');
+  font-family: 'Inter';
+  src: url('./Inter/thin.woff2') format('woff2'),
+    url('./Inter/thin.ttf') format('truetype');
   font-weight: 100;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Roboto';
-  src: url('./Roboto/light.woff2') format('woff2'), url('./Roboto/light.ttf') format('truetype');
+  font-family: 'Inter';
+  src: url('./Inter/light.woff2') format('woff2'),
+    url('./Inter/light.ttf') format('truetype');
   font-weight: 300;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Roboto';
-  src: url('./Roboto/regular.woff2') format('woff2'), url('./Roboto/regular.ttf') format('truetype');
+  font-family: 'Inter';
+  src: url('./Inter/regular.woff2') format('woff2'),
+    url('./Inter/regular.ttf') format('truetype');
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Roboto';
-  src: url('./Roboto/medium.woff2') format('woff2'), url('./Roboto/medium.ttf') format('truetype');
+  font-family: 'Inter';
+  src: url('./Inter/medium.woff2') format('woff2'),
+    url('./Inter/medium.ttf') format('truetype');
   font-weight: 500;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Roboto';
-  src: url('./Roboto/bold.woff2') format('woff2'), url('./Roboto/bold.ttf') format('truetype');
-  font-weight: 700;
+  font-family: 'Inter';
+  src: url('./Inter/semibold.woff2') format('woff2'),
+    url('./Inter/semibold.ttf') format('truetype');
+  font-weight: 600;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Roboto';
-  src: url('./Roboto/black.woff2') format('woff2'), url('./Roboto/black.ttf') format('truetype');
-  font-weight: 900;
+  font-family: 'Inter';
+  src: url('./Inter/bold.woff2') format('woff2'),
+    url('./Inter/bold.ttf') format('truetype');
+  font-weight: 700;
   font-display: swap;
 }
 
 /* FONT - Spectral.
 ========================================================================== */
 @font-face {
-  font-family: 'Spectral Light';
-  src: url('./Spectral/light.woff2') format('woff2'), url('./Spectral/light.ttf') format('truetype');
+  font-family: 'Spectral';
+  src: url('./Spectral/light.woff2') format('woff2'),
+    url('./Spectral/light.ttf') format('truetype');
+  font-weight: 300;
   font-display: swap;
 }
 @font-face {
   font-family: 'Spectral';
   src: url('./Spectral/regular.woff2') format('woff2'),
     url('./Spectral/regular.ttf') format('truetype');
+  font-weight: 400;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Spectral Medium';
+  font-family: 'Spectral';
   src: url('./Spectral/medium.woff2') format('woff2'),
     url('./Spectral/medium.ttf') format('truetype');
+  font-weight: 500;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Spectral Semibold';
+  font-family: 'Spectral';
   src: url('./Spectral/semibold.woff2') format('woff2'),
     url('./Spectral/semibold.ttf') format('truetype');
+  font-weight: 600;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Spectral Bold';
-  src: url('./Spectral/bold.woff2') format('woff2'), url('./Spectral/bold.ttf') format('truetype');
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Spectral Italic';
-  src: url('./Spectral/italic.woff2') format('woff2'),
-    url('./Spectral/italic.ttf') format('truetype');
+  font-family: 'Spectral';
+  src: url('./Spectral/bold.woff2') format('woff2'),
+    url('./Spectral/bold.ttf') format('truetype');
+  font-weight: 700;
   font-display: swap;
 }

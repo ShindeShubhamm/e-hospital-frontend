@@ -42,11 +42,19 @@ const Header = (props) => {
           <Toolbar>
             <div className="h-contents">
               <div className="h-left-contents">
-                <button type="button" className="h-menu-button" onClick={() => handleDrawer(true)}>
+                <button
+                  type="button"
+                  className="h-menu-button"
+                  onClick={() => handleDrawer(true)}
+                >
                   <MdMenu className="h-menu-icon" />
                 </button>
                 <Link to="/" className="h-logo-container">
-                  <img src="/images/rx_online.svg" alt="Rx.Online" className="h-logo" />
+                  <img
+                    src="/images/rx_online.svg"
+                    alt="Rx.Online"
+                    className="h-logo"
+                  />
                 </Link>
               </div>
               <div className="h-right-contents">
@@ -67,7 +75,6 @@ const Header = (props) => {
                   <Dropdown
                     className="h-profile"
                     primary={
-                      // eslint-disable-next-line
                       <div className="h-photo">
                         {userInfo?.profilePhoto ? (
                           <img

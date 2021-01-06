@@ -1,6 +1,4 @@
-import {
-  ALERT_UNSET,
-} from './types';
+import { ALERT_UNSET } from './types';
 
 export const snackClose = () => (dispatch) => {
   dispatch({

@@ -54,7 +54,10 @@ const FormHandler = (props) => {
 
   return (
     <Fragment>
-      <form onSubmit={handleSubmit} className={`ff-filetemplate ${props.className}`}>
+      <form
+        onSubmit={handleSubmit}
+        className={`ff-filetemplate ${props.className}`}
+      >
         <Grid container spacing={2}>
           {schema.fields.map((field, index) => (
             <Fragment key={index}>
@@ -74,7 +77,12 @@ const FormHandler = (props) => {
           {props.submitButton ? (
             props.submitButton
           ) : (
-            <Button className="ff-btn" type="submit" color="primary" variant="contained">
+            <Button
+              className="ff-btn"
+              type="submit"
+              color="primary"
+              variant="contained"
+            >
               {props.submitButtonLabel}
             </Button>
           )}

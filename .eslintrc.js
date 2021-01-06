@@ -95,5 +95,7 @@ module.exports = {
     'import/no-named-as-default': 'off',
     'react/jsx-indent': 'off',
     'object-curly-newline': 'off',
+    'react/jsx-wrap-multilines': 'off',
+    'operator-linebreak': 'off',
   },
 };

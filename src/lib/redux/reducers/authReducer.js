@@ -1,6 +1,11 @@
 import ls from 'local-storage';
 
-import { AUTH_ERROR, AUTH_LOADING, AUTH_LOGOUT, AUTH_SUCCESS } from '../actions/types';
+import {
+  AUTH_ERROR,
+  AUTH_LOADING,
+  AUTH_LOGOUT,
+  AUTH_SUCCESS,
+} from '../actions/types';
 
 const initialState = {
   userInfo: null,

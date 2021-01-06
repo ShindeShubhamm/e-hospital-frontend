@@ -136,7 +136,10 @@ export const authSignup = (data) => async (dispatch) => {
 
     const { data } = error.response;
 
-    if (data?.msg === 'Email already taken' || data?.msg === 'Mobile Number already taken') {
+    if (
+      data?.msg === 'Email already taken' ||
+      data?.msg === 'Mobile Number already taken'
+    ) {
       dispatch({
         type: ALERT_SET,
         payload: { open: true, message: data.msg, severity: 'warning' },

@@ -19,7 +19,11 @@ const ScreenOverlay = (props) => {
     <div className="screen-overlay">
       <Overlay className={classes.backdrop} open={open}>
         <div className="so-content">
-          <img src="/images/rx_online.svg" alt="Loading..." className="so-logo" />
+          <img
+            src="/images/rx_online.svg"
+            alt="Loading..."
+            className="so-logo"
+          />
           <div className="so-loading">
             <div className="so-loading-bar" />
           </div>

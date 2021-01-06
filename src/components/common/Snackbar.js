@@ -27,7 +27,7 @@ const Snackbar = (props) => {
 };
 Snackbar.defaultProps = {
   severity: '',
-  onClose: () => { },
+  onClose: () => {},
   open: false,
   message: '',
 };

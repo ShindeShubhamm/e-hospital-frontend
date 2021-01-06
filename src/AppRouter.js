@@ -19,7 +19,7 @@ const AppRouter = () => {
         <UnauthedRoute exact path="/signup" component={Signup} />
 
         {/* Routes Inside Default Layout */}
-        <Layout headerProps={{ navbarColor: '#f5f7f9' }}>
+        <Layout>
           <Route exact path="/" component={Landing} />
           <AuthedRoute exact path="/dashboard" component={Dashboard} />
           <AuthedRoute exact path="/doctor/add" component={Registration} />
