@@ -16,7 +16,7 @@ const getDataByIP = async () => {
         delete headers.common['auth-token'];
       },
       headers: {
-        'Upgrade-Insecure-Requests': 1,
+        'Content-Security-Policy': 'upgrade-insecure-requests',
       },
     });
     return res.data;
