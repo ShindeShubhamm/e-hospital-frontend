@@ -1,5 +1,5 @@
 .auth-layout {
-  min-height: 100vh;
+  min-height: 75vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,6 +28,7 @@
   }
 
   @include scMax(600) {
+    min-height: auto;
     .auth-children {
       .auth-logo {
         max-width: 40%;
