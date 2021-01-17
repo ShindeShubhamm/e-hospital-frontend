@@ -1,5 +1,171 @@
 .landing-page {
-  h2 {
-    font-family: 'Inter';
+  background-color: #fff;
+}
+
+// Intro Section
+.landing-intro {
+  background-image: url('../../assets/images/doctorbg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-blend-mode: overlay;
+  background-color: #f6fafd22;
+  width: 100%;
+  height: 100vh;
+
+  .intro {
+    padding: $navbar-padding + 180px 0;
+    max-width: 50%;
+    .title {
+      font-size: $head;
+      font-weight: 600;
+      margin: 0;
+      color: $theme-primary;
+    }
+    .subtitle {
+      font-size: $subhead;
+      font-weight: 400;
+      color: #555;
+    }
+  }
+
+  @include scMax(960) {
+    height: auto;
+    background-color: #f6fafdcc;
+    .intro {
+      max-width: 100%;
+      padding: $navbar-padding + 100px 30px;
+      text-align: center;
+      .title {
+        font-size: $head-md;
+        font-weight: 700;
+      }
+      .subtitle {
+        font-size: $subhead-md;
+      }
+    }
+  }
+
+  @include scMax(600) {
+    .intro {
+      padding: $navbar-padding + 60px 10px;
+      .title {
+        font-size: $head-sm;
+      }
+      .subtitle {
+        font-size: $subhead-sm;
+      }
+    }
+  }
+}
+
+// Services Section
+.landing-services {
+  min-height: 500px;
+  padding: 50px 0;
+  .title {
+    margin: 0;
+    padding-bottom: 24px;
+    color: #050505;
+    text-align: center;
+    font-size: $head;
+    font-weight: 600;
+  }
+  .ls-cards {
+    margin: 50px 0;
+  }
+
+  @include scMax(960) {
+    .title {
+      font-size: $head-md;
+    }
+  }
+  @include scMax(600) {
+    .title {
+      font-size: $head-sm;
+    }
+    .ls-cards {
+      margin: 30px 0;
+    }
+  }
+}
+
+// Patients Feedback Section
+.landing-patients {
+  background-color: #f7fafd;
+  min-height: 500px;
+  padding: 50px 0;
+  .title {
+    margin: 0;
+    padding-bottom: 24px;
+    color: $theme-primary;
+    text-align: center;
+    font-size: $head;
+    font-weight: 600;
+  }
+  .lpt-carousel {
+    margin: 40px 0;
+  }
+
+  @include scMax(960) {
+    .title {
+      font-size: $head-md;
+    }
+  }
+  @include scMax(600) {
+    .title {
+      font-size: $head-sm;
+    }
+    .lpt-carousel {
+      margin: 25px 0;
+    }
+  }
+}
+
+// Stats Section
+.landing-stats {
+  background-image: url('../../assets/images/statsbg.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: #01264b;
+  background-blend-mode: overlay;
+  color: #fff;
+  .ls-container {
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .stat-card {
+    margin: 100px auto;
+    display: block;
+    text-align: center;
+    .stat-icon {
+      color: #fff;
+    }
+    .stat-text {
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 0;
+    }
+    .stat-num {
+      font-size: 22px;
+      font-weight: 600;
+      margin: 0;
+    }
+  }
+
+  @include scMax(960) {
+    .stat-card {
+      margin: 50px auto;
+    }
+  }
+  @include scMax(600) {
+    .stat-card {
+      margin: 38px auto;
+    }
   }
 }

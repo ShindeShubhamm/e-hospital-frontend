@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Container from '@material-ui/core/Container';
+import { Container } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
 const AuthLayout = (props) => {

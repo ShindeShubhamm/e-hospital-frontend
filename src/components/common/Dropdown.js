@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 
-import Box from '@material-ui/core/Box';
-import Popover from '@material-ui/core/Popover';
+import { Box, Popover } from '@material-ui/core';
 import PopupState, { bindPopover, bindTrigger } from 'material-ui-popup-state';
 
 const Dropdown = (props) => {

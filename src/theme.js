@@ -17,7 +17,7 @@ export const AppTheme = createMuiTheme({
   palette: {
     primary: {
       main: '#1976d2',
-      light: '#4791db',
+      light: '#eff8ff',
       dark: '#115293',
     },
     secondary: {

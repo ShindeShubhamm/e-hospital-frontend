@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
+import { SwipeableDrawer } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 

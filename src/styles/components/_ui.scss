@@ -1,5 +1,16 @@
+// Dropdown
 .ui-popover {
   .MuiPaper-elevation8 {
     box-shadow: $box-shadow;
+  }
+}
+
+// Carousel
+.carousel-component {
+  .slick-prev {
+    left: 25px !important;
+  }
+  .slick-next {
+    right: 25px !important;
   }
 }

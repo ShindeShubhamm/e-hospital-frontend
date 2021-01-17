@@ -15,7 +15,15 @@ const AppRouter = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={Landing} />
+        <Route
+          exact
+          path="/"
+          component={Landing}
+          layoutProps={{
+            headerProps: { navbarColor: '#ffffff00' },
+            contentStyles: { paddingTop: 0 },
+          }}
+        />
         <AuthedRoute exact path="/dashboard" component={Dashboard} />
         <AuthedRoute exact path="/doctor/add" component={Registration} />
         <UnauthedRoute exact path="/login" component={Login} />

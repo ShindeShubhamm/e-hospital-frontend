@@ -1,8 +1,8 @@
 /* BASE - Base Variable file.
 ========================================================================== */
-@import 'base/_vars.scss';
-@import 'base/_colors.scss';
 @import 'base/_app.scss';
+@import 'base/_colors.scss';
+@import 'base/_vars.scss';
 
 /* FONTS - Fonts file.
 ========================================================================== */
@@ -22,3 +22,4 @@
 /* COMMON - UI components.
 ========================================================================== */
 @import 'components/_ui.scss';
+@import 'components/_cards.scss';

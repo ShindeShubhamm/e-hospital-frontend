@@ -1,11 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 
-import AppBar from '@material-ui/core/AppBar';
-import Container from '@material-ui/core/Container';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
+import { AppBar, Container, List, ListItem, Toolbar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Toolbar from '@material-ui/core/Toolbar';
 import { MdMenu } from 'react-icons/md';
 import { Link, NavLink } from 'react-router-dom';
 

@@ -47,22 +47,23 @@ export const authLogin = (data) => async (dispatch) => {
       type: BDROP_UNSET,
     });
 
-    const { data } = error.response;
-
-    if (data?.msg === 'Invalid credentials') {
-      dispatch({
-        type: ALERT_SET,
-        payload: { open: true, message: data.msg, severity: 'error' },
-      });
-    } else {
-      dispatch({
-        type: AUTH_ERROR,
-        payload: { error: error.response },
-      });
-      dispatch({
-        type: ALERT_ERROR,
-      });
+    if (error.response) {
+      const { data } = error.response;
+      if (data?.msg === 'Invalid credentials') {
+        dispatch({
+          type: ALERT_SET,
+          payload: { open: true, message: data.msg, severity: 'error' },
+        });
+        dispatch({
+          type: AUTH_ERROR,
+          payload: { error: error.response },
+        });
+        return;
+      }
     }
+    dispatch({
+      type: ALERT_ERROR,
+    });
   }
 };
 
@@ -134,24 +135,25 @@ export const authSignup = (data) => async (dispatch) => {
       type: BDROP_UNSET,
     });
 
-    const { data } = error.response;
-
-    if (
-      data?.msg === 'Email already taken' ||
-      data?.msg === 'Mobile Number already taken'
-    ) {
-      dispatch({
-        type: ALERT_SET,
-        payload: { open: true, message: data.msg, severity: 'warning' },
-      });
-    } else {
-      dispatch({
-        type: ALERT_ERROR,
-      });
-      dispatch({
-        type: AUTH_ERROR,
-        payload: { error: error.response },
-      });
+    if (error.response) {
+      const { data } = error.response;
+      if (
+        data?.msg === 'Email already taken' ||
+        data?.msg === 'Mobile Number already taken'
+      ) {
+        dispatch({
+          type: ALERT_SET,
+          payload: { open: true, message: data.msg, severity: 'warning' },
+        });
+        dispatch({
+          type: AUTH_ERROR,
+          payload: { error: error.response },
+        });
+        return;
+      }
     }
+    dispatch({
+      type: ALERT_ERROR,
+    });
   }
 };
