@@ -26,8 +26,18 @@ const AppRouter = () => {
         />
         <AuthedRoute exact path="/dashboard" component={Dashboard} />
         <AuthedRoute exact path="/doctor/add" component={Registration} />
-        <UnauthedRoute exact path="/login" component={Login} />
-        <UnauthedRoute exact path="/signup" component={Signup} />
+        <UnauthedRoute
+          exact
+          path="/login"
+          component={Login}
+          layoutProps={{ noFooter: true, contentStyles: { paddingBottom: 0 } }}
+        />
+        <UnauthedRoute
+          exact
+          path="/signup"
+          component={Signup}
+          layoutProps={{ noFooter: true, contentStyles: { paddingBottom: 0 } }}
+        />
       </Switch>
     </BrowserRouter>
   );

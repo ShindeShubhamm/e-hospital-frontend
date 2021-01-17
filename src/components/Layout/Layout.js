@@ -20,7 +20,7 @@ const authedNavLinks = [
 ];
 
 const Layout = (props) => {
-  const { auth, onLogout, headerProps, contentStyles } = props;
+  const { auth, onLogout, headerProps, contentStyles, noFooter } = props;
   const navLinks = auth.isAuthenticated ? authedNavLinks : unauthedNavLinks;
 
   const [drawer, setDrawer] = useState(false);
@@ -41,7 +41,7 @@ const Layout = (props) => {
       <div className="l-children" style={contentStyles}>
         {props.children}
       </div>
-      <Footer />
+      {!noFooter && <Footer />}
       <SwipeableDrawer
         open={drawer}
         onOpen={() => handleDrawer(true)}
