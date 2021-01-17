@@ -148,21 +148,58 @@
 // Footer
 .footer {
   position: absolute;
-  height: 90px;
-  background-color: #fff;
-  border-top: 1px solid #dfdfdf;
+  height: 220px;
   left: 0;
   right: 0;
   bottom: 0;
+  background-color: #f8f8f8;
+  border-top: 1px solid #f4f4f4;
   .f-content {
-    margin: 22px 0 0;
+    height: 158px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .f-logo {
+      max-width: 140px;
+    }
+    .f-social-media {
+      display: flex;
+      padding: 10px 0;
+      .f-icon-link {
+        width: 24px;
+        height: 24px;
+        outline: none;
+        .f-icon {
+          color: #bbb;
+          width: 18px;
+          height: 18px;
+          &:hover {
+            color: $theme-primary;
+          }
+        }
+      }
+    }
+  }
+  .f-bottom {
+    height: 60px;
+    background-color: #ececec;
+    border-top: 1px solid #e5e5e5;
     text-align: center;
-    display: block;
+    padding: 8px 0;
+    color: #333;
+    font-size: 12px;
     .f-text {
       margin: 0;
     }
     .f-text-secondary {
       margin: 0;
+    }
+  }
+
+  @include scMax(960) {
+    .f-content {
+      flex-direction: column;
+      justify-content: center;
     }
   }
 }
