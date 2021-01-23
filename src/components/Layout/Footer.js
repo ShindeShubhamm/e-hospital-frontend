@@ -44,6 +44,7 @@ const Footer = () => {
           <div className="f-social-media">
             {socialData.map((data) => (
               <a
+                key={data.link}
                 href={data.link}
                 target="_blank"
                 rel="noreferrer"

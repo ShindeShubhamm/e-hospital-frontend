@@ -1,15 +1,16 @@
+import * as auth from './auth';
 import * as doctor from './doctor';
-import * as login from './login';
-import * as signup from './signup';
 
 const getSchema = (name) => {
   switch (name) {
     case 'LOGIN':
-      return login.login();
+      return auth.login();
     case 'SIGNUP':
-      return signup.signup();
+      return auth.signup();
     case 'DOCTOR_BASIC_INFO':
-      return doctor.doctorBasicInfo();
+      return doctor.basicInfo();
+    case 'DOCTOR_REGISTRATION_DETAILS':
+      return doctor.registrationDetails();
     default:
       return { fields: [] };
   }
