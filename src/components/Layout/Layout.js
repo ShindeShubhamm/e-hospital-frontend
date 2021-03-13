@@ -9,13 +9,12 @@ import Footer from './Footer';
 import Header from './Header';
 
 const unauthedNavLinks = [
-  { name: 'Home', route: '/' },
   { name: 'Login', route: '/login' },
   { name: 'Signup', route: '/signup' },
 ];
 
 const authedNavLinks = [
-  { name: 'Home', route: '/' },
+  { name: 'For Providers', route: '/providers' },
   { name: 'Dashboard', route: '/dashboard' },
 ];
 

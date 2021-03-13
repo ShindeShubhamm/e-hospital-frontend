@@ -20,12 +20,25 @@ const AppRouter = () => {
           path="/"
           component={Landing}
           layoutProps={{
-            headerProps: { navbarColor: '#ffffff00' },
+            headerProps: { navbarColor: '#ffffff88' },
             contentStyles: { paddingTop: 0 },
           }}
         />
-        <AuthedRoute exact path="/dashboard" component={Dashboard} />
+        <AuthedRoute
+          exact
+          path="/dashboard"
+          component={Dashboard}
+          layoutProps={{
+            noFooter: true,
+            contentStyles: { paddingBottom: 0 },
+          }}
+        />
         <AuthedRoute exact path="/doctor/add" component={Registration} />
+        <AuthedRoute
+          exact
+          path="/providers"
+          component={() => <div>Providers</div>}
+        />
         <UnauthedRoute
           exact
           path="/login"

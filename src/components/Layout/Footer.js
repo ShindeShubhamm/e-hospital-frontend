@@ -34,29 +34,27 @@ const socialData = [
 const Footer = () => {
   return (
     <div className="footer">
-      <Container>
-        <div className="f-content">
-          <img
-            src="/images/rx_online.svg"
-            alt="Rx.Online Logo"
-            className="f-logo"
-          />
-          <div className="f-social-media">
-            {socialData.map((data) => (
-              <a
-                key={data.link}
-                href={data.link}
-                target="_blank"
-                rel="noreferrer"
-                title={data.title}
-                className="f-icon-link"
-              >
-                <data.icon className="f-icon" />
-              </a>
-            ))}
-          </div>
+      <div className="f-content">
+        <img
+          src="/images/rx_online.svg"
+          alt="Rx.Online Logo"
+          className="f-logo"
+        />
+        <div className="f-social-media">
+          {socialData.map((data) => (
+            <a
+              key={data.link}
+              href={data.link}
+              target="_blank"
+              rel="noreferrer"
+              title={data.title}
+              className="f-icon-link"
+            >
+              <data.icon className="f-icon" />
+            </a>
+          ))}
         </div>
-      </Container>
+      </div>
       <div className="f-bottom">
         <Container>
           <p className="f-text">
