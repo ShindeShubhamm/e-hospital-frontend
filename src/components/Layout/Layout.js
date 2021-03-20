@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 
-import { SwipeableDrawer } from '@material-ui/core';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 
 import { authLogout } from '../../lib/redux/actions/authActions';
-import Footer from './Footer';
-import Header from './Header';
+import Footer from './sections/Footer';
+import Header from './sections/Header';
+import Sidebar from './sections/Sidebar';
 
 const unauthedNavLinks = [
   { name: 'Login', route: '/login' },
@@ -41,27 +40,13 @@ const Layout = (props) => {
         {props.children}
       </div>
       {!noFooter && <Footer />}
-      <SwipeableDrawer
+      <Sidebar
         open={drawer}
         onOpen={() => handleDrawer(true)}
         onClose={() => handleDrawer(false)}
-        className="l-sidebar"
-      >
-        <div className="l-side-links">
-          {navLinks.map((link) => (
-            <NavLink
-              exact
-              to={link.route}
-              key={link.route}
-              onClick={() => handleDrawer(false)}
-              className="l-sidelink"
-              activeClassName="l-sidelink-active"
-            >
-              {link.name}
-            </NavLink>
-          ))}
-        </div>
-      </SwipeableDrawer>
+        navLinks={navLinks}
+        onLinkClick={() => handleDrawer(false)}
+      />
     </div>
   );
 };

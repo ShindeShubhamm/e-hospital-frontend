@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 
 import authReducer from './authReducer';
 import backdropReducer from './backdropReducer';
+import dashboardReducer from './dashboardReducer';
 import formReducer from './formReducer';
 import overlayReducer from './overlayReducer';
 import snackbarReducer from './snackbarReducer';
@@ -12,4 +13,5 @@ export default combineReducers({
   snackbar: snackbarReducer,
   overlay: overlayReducer,
   form: formReducer,
+  dashboard: dashboardReducer,
 });

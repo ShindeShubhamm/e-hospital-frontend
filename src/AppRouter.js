@@ -4,8 +4,9 @@ import { BrowserRouter, Switch } from 'react-router-dom';
 
 import Login from './components/Auth/Login/Login';
 import Signup from './components/Auth/Signup/Signup';
-import Dashboard from './components/Dashboard/Dashboard';
+import Dashboard, { dashboardMenu } from './components/Dashboard/Dashboard';
 import Landing from './components/Landing/Landing';
+import AppLayout from './components/Layout/AppLayout';
 import Registration from './components/Registration/Registration';
 import AuthedRoute from './router/AuthedRoute';
 import Route from './router/Route';
@@ -28,10 +29,8 @@ const AppRouter = () => {
           exact
           path="/dashboard"
           component={Dashboard}
-          layoutProps={{
-            noFooter: true,
-            contentStyles: { paddingBottom: 0 },
-          }}
+          layout={AppLayout}
+          layoutProps={{ menu: dashboardMenu }}
         />
         <AuthedRoute exact path="/doctor/add" component={Registration} />
         <AuthedRoute

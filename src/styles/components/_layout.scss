@@ -144,6 +144,11 @@
       }
     }
   }
+
+  // Header for application dashboard
+  .app-header {
+    border-bottom: 1px solid #f5f5f5;
+  }
 }
 
 // Footer
@@ -208,3 +213,73 @@
 
 /* APP LAYOUT - Application Layout.
 ========================================================================== */
+.app-layout {
+  position: relative;
+  min-height: 100vh;
+  .app-screen {
+    height: 100vh;
+    padding-top: 64px;
+    display: flex;
+  }
+
+  @include scMax(960) {
+    .app-screen {
+      padding-top: 56px;
+    }
+  }
+}
+.app-menu-wrapper {
+  background-color: #fdfdfd;
+  border-right: 1px solid #f5f5f5;
+  width: 280px;
+  .app-menu-main {
+    margin-top: 50px;
+    .menu-option {
+      display: flex;
+      align-items: center;
+      margin: 10px 14px;
+      padding: 12px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      .option-icon {
+        font-size: 18px;
+        color: #666;
+      }
+      .option-text {
+        font-size: 18px;
+        font-weight: 400;
+        margin: 0;
+        margin-left: 14px;
+        color: #666;
+      }
+    }
+    .menu-selected {
+      background-color: #f3f5ff;
+      .option-icon {
+        color: #2f45c5;
+        font-size: 20px;
+      }
+      .option-text {
+        color: #2f45c5;
+        font-weight: 400;
+        margin-left: 12px;
+      }
+    }
+  }
+
+  @include scMax(960) {
+    width: 64px;
+    .app-menu-main {
+      .menu-option {
+        margin: 10px;
+        padding: 12px 12px;
+        .option-text {
+          display: none;
+        }
+      }
+    }
+  }
+}
+.app-children {
+  flex-grow: 1;
+}

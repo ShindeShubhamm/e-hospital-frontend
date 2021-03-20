@@ -97,5 +97,6 @@ module.exports = {
     'object-curly-newline': 'off',
     'react/jsx-wrap-multilines': 'off',
     'operator-linebreak': 'off',
+    'linebreak-style': 'off',
   },
 };

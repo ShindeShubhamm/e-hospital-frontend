@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { MdMenu } from 'react-icons/md';
 import { Link, NavLink } from 'react-router-dom';
 
-import Dropdown from '../common/Dropdown';
+import Dropdown from '../../common/Dropdown';
 
 const api = process.env.REACT_APP_API_ENDPOINT;
 
@@ -16,7 +16,14 @@ const useStyles = makeStyles({
 });
 
 const Header = (props) => {
-  const { navLinks, handleDrawer, auth, onLogout, navbarColor } = props;
+  const {
+    navLinks,
+    handleDrawer,
+    auth,
+    onLogout,
+    navbarColor,
+    appClass,
+  } = props;
   const { isAuthenticated, userInfo } = auth;
   const classes = useStyles({ color: navbarColor });
   const [headerClass, setHeaderClass] = useState('');
@@ -40,7 +47,7 @@ const Header = (props) => {
 
   return (
     <div className="header">
-      <AppBar className={`${classes.appBar} ${headerClass}`}>
+      <AppBar className={`${classes.appBar} ${headerClass} ${appClass}`}>
         <Toolbar>
           <div className="h-contents">
             <div className="h-left-contents">
