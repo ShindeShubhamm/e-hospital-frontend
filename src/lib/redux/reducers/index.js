@@ -5,6 +5,7 @@ import backdropReducer from './backdropReducer';
 import dashboardReducer from './dashboardReducer';
 import formReducer from './formReducer';
 import overlayReducer from './overlayReducer';
+import providerReducer from './providerReducer';
 import snackbarReducer from './snackbarReducer';
 
 export default combineReducers({
@@ -14,4 +15,5 @@ export default combineReducers({
   overlay: overlayReducer,
   form: formReducer,
   dashboard: dashboardReducer,
+  provider: providerReducer,
 });

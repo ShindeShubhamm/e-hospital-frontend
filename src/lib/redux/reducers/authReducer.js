@@ -7,6 +7,7 @@ import {
   AUTH_SUCCESS,
   PROFILE_PIC_REMOVE,
   PROFILE_PIC_UPLOAD,
+  UPDATE_USER,
 } from '../actions/types';
 
 const initialState = {
@@ -51,6 +52,12 @@ const authReducer = (state = initialState, action) => {
         token: null,
         error: null,
         loading: false,
+      };
+
+    case UPDATE_USER:
+      return {
+        ...state,
+        userInfo: { ...state.userInfo, ...action.payload },
       };
 
     case PROFILE_PIC_UPLOAD:

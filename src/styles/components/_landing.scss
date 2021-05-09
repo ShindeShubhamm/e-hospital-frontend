@@ -169,3 +169,56 @@
     }
   }
 }
+
+// Providers Landing
+.providers-wrapper {
+  margin: 14px;
+  .heading {
+    text-align: center;
+    margin: 0;
+    font-size: 24px;
+  }
+  .section {
+    min-height: 180px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    .provider-image {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      margin-right: 20px;
+    }
+    .link {
+      cursor: pointer;
+      background-color: $theme-primary;
+      text-decoration: none;
+      color: #ffffff;
+      padding: 10px 14px;
+      border-radius: 5px;
+      font-size: 14px;
+      outline: none;
+      border: none;
+      font-family: 'Inter';
+      &:hover {
+        background-color: rgba($theme-primary, 0.8);
+      }
+    }
+  }
+
+  @include scMax(960) {
+    .heading {
+      font-size: 18px;
+    }
+    .section {
+      margin-bottom: 24px;
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+      .provider-image {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+}
