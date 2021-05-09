@@ -5,6 +5,8 @@ import {
   AUTH_LOADING,
   AUTH_LOGOUT,
   AUTH_SUCCESS,
+  PROFILE_PIC_REMOVE,
+  PROFILE_PIC_UPLOAD,
 } from '../actions/types';
 
 const initialState = {
@@ -12,7 +14,7 @@ const initialState = {
   isAuthenticated: false,
   token: ls.get('token'),
   error: null,
-  loading: false,
+  loading: true,
 };
 
 const authReducer = (state = initialState, action) => {
@@ -49,6 +51,18 @@ const authReducer = (state = initialState, action) => {
         token: null,
         error: null,
         loading: false,
+      };
+
+    case PROFILE_PIC_UPLOAD:
+      return {
+        ...state,
+        userInfo: { ...state.userInfo, profilePhoto: action.payload },
+      };
+
+    case PROFILE_PIC_REMOVE:
+      return {
+        ...state,
+        userInfo: { ...state.userInfo, profilePhoto: '' },
       };
     default:
       return state;

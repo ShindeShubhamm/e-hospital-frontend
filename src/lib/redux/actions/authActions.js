@@ -1,6 +1,7 @@
 import ls from 'local-storage';
 
 import AuthAPI from '../../../api/AuthAPI';
+import FileAPI from '../../../api/FileAPI';
 import UserAPI from '../../../api/UserAPI';
 import setAxiosToken from '../../../utils/setAxiosToken';
 import {
@@ -13,6 +14,8 @@ import {
   BDROP_SET,
   BDROP_UNSET,
   OVERLAY_UNSET,
+  PROFILE_PIC_REMOVE,
+  PROFILE_PIC_UPLOAD,
 } from './types';
 
 const setLoading = () => {
@@ -75,6 +78,7 @@ export const authLogout = () => (dispatch) => {
 };
 
 export const loadUser = () => async (dispatch) => {
+  dispatch({ type: AUTH_LOADING });
   const token = ls.get('token');
   setAxiosToken(token);
 
@@ -82,6 +86,7 @@ export const loadUser = () => async (dispatch) => {
     dispatch({
       type: OVERLAY_UNSET,
     });
+    dispatch({ type: AUTH_LOGOUT });
     return;
   }
 
@@ -155,5 +160,38 @@ export const authSignup = (data) => async (dispatch) => {
     dispatch({
       type: ALERT_ERROR,
     });
+  }
+};
+
+export const uploadProfilePic = (data) => async (dispatch) => {
+  dispatch({ type: BDROP_SET });
+  try {
+    const res = await FileAPI.upload(data);
+    dispatch({ type: PROFILE_PIC_UPLOAD, payload: res.data.filename });
+    dispatch({
+      type: ALERT_SET,
+      payload: { open: true, message: res.data.msg, severity: 'success' },
+    });
+    dispatch({ type: BDROP_UNSET });
+  } catch (error) {
+    dispatch({
+      type: ALERT_ERROR,
+    });
+    dispatch({ type: BDROP_UNSET });
+  }
+};
+
+export const deleteProfilePic = (filename, userId) => async (dispatch) => {
+  dispatch({ type: BDROP_SET });
+  try {
+    await UserAPI.update(userId, { profilePhoto: '' });
+    await FileAPI.delete(filename);
+    dispatch({ type: PROFILE_PIC_REMOVE });
+    dispatch({ type: BDROP_UNSET });
+  } catch (error) {
+    dispatch({
+      type: ALERT_ERROR,
+    });
+    dispatch({ type: BDROP_UNSET });
   }
 };

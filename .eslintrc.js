@@ -98,5 +98,6 @@ module.exports = {
     'react/jsx-wrap-multilines': 'off',
     'operator-linebreak': 'off',
     'linebreak-style': 'off',
+    'jsx-a11y/label-has-associated-control': 'off',
   },
 };

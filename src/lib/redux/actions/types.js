@@ -3,6 +3,8 @@ export const AUTH_SUCCESS = 'AUTH_SUCCESS';
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const AUTH_LOADING = 'AUTH_LOADING';
 export const AUTH_LOGOUT = 'AUTH_LOGOUT';
+export const PROFILE_PIC_UPLOAD = 'PROFILE_PIC_UPLOAD';
+export const PROFILE_PIC_REMOVE = 'PROFILE_PIC_REMOVE';
 
 // BACKDROP ACTIONS
 export const BDROP_SET = 'BDROP_SET';
