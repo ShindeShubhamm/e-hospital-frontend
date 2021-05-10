@@ -12,9 +12,23 @@ const appLayoutNavLinks = [
   { name: 'Dashboard', route: '/dashboard' },
 ];
 
+const appLayoutProviderLinks = [{ name: 'Dashboard', route: '/dashboard' }];
+
 const AppLayout = (props) => {
-  const { auth, onLogout, children, menu, onMenuItemSelect, dashboard } = props;
-  const navLinks = appLayoutNavLinks;
+  const {
+    auth,
+    onLogout,
+    children,
+    menu,
+    doctorMenu,
+    onMenuItemSelect,
+    dashboard,
+  } = props;
+  const navLinks = !auth?.userInfo?.isProvider
+    ? appLayoutNavLinks
+    : appLayoutProviderLinks;
+
+  const mapMenu = !auth?.userInfo?.isProvider ? menu : doctorMenu;
 
   const [drawer, setDrawer] = useState(false);
 
@@ -38,7 +52,7 @@ const AppLayout = (props) => {
       <div className="app-screen">
         <div className="app-menu-wrapper">
           <div className="app-menu-main">
-            {menu.map((item, index) => {
+            {mapMenu.map((item, index) => {
               const { icon, iconSelected, text } = item;
               const isSelected = dashboard.selectedMenu === index;
               const Icon = isSelected ? iconSelected : icon;

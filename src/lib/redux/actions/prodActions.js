@@ -7,6 +7,7 @@ import {
   BDROP_SET,
   BDROP_UNSET,
   CREATE_PROVIDER_ACC,
+  LOAD_PROVIDER_DATA,
   UPDATE_USER,
 } from './types';
 
@@ -37,5 +38,17 @@ export const switchToProvider = (userId, type, data, formData) => async (
   } catch (error) {
     dispatch({ type: BDROP_UNSET });
     dispatch({ type: ALERT_ERROR });
+  }
+};
+
+export const loadProviderData = (userId) => async (dispatch) => {
+  try {
+    const res = await ProviderAPI.getProvider(userId);
+    dispatch({
+      type: LOAD_PROVIDER_DATA,
+      payload: res.data,
+    });
+  } catch (error) {
+    dispatch({ type: BDROP_UNSET });
   }
 };

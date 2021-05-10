@@ -1,4 +1,4 @@
-import { CREATE_PROVIDER_ACC } from '../actions/types';
+import { CREATE_PROVIDER_ACC, LOAD_PROVIDER_DATA } from '../actions/types';
 
 const initialState = {
   data: null,
@@ -9,6 +9,12 @@ const prodReducer = (state = initialState, action) => {
 
   switch (type) {
     case CREATE_PROVIDER_ACC:
+      return {
+        ...state,
+        data: payload,
+      };
+
+    case LOAD_PROVIDER_DATA:
       return {
         ...state,
         data: payload,

@@ -28,6 +28,15 @@ export const dashboardMenu = [
   { text: 'Past Appointments', icon: RiTimer2Line, iconSelected: RiTimer2Fill },
 ];
 
+export const doctorMenu = [
+  { text: 'Profile', icon: RiDashboardLine, iconSelected: RiDashboardFill },
+  {
+    text: 'Appointments Today',
+    icon: RiCalendarEventLine,
+    iconSelected: RiCalendarEventFill,
+  },
+];
+
 const Dashboard = (props) => {
   const { dashboard } = props;
 

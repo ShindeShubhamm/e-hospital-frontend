@@ -4,6 +4,7 @@ import AuthAPI from '../../../api/AuthAPI';
 import FileAPI from '../../../api/FileAPI';
 import UserAPI from '../../../api/UserAPI';
 import setAxiosToken from '../../../utils/setAxiosToken';
+import { loadProviderData } from './prodActions';
 import {
   ALERT_ERROR,
   ALERT_SET,
@@ -38,6 +39,10 @@ export const authLogin = (data) => async (dispatch) => {
         token,
       },
     });
+    setAxiosToken(token);
+    if (user.isProvider) {
+      dispatch(loadProviderData(user._id));
+    }
     dispatch({
       type: BDROP_UNSET,
     });
@@ -100,6 +105,9 @@ export const loadUser = () => async (dispatch) => {
         token,
       },
     });
+    if (user.isProvider) {
+      dispatch(loadProviderData(user._id));
+    }
     dispatch({
       type: OVERLAY_UNSET,
     });
@@ -128,6 +136,7 @@ export const authSignup = (data) => async (dispatch) => {
         token,
       },
     });
+    setAxiosToken(token);
     dispatch({
       type: BDROP_UNSET,
     });

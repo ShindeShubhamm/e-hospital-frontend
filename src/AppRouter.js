@@ -4,7 +4,10 @@ import { BrowserRouter, Switch } from 'react-router-dom';
 
 import Login from './components/Auth/Login/Login';
 import Signup from './components/Auth/Signup/Signup';
-import Dashboard, { dashboardMenu } from './components/Dashboard/Dashboard';
+import Dashboard, {
+  dashboardMenu,
+  doctorMenu,
+} from './components/Dashboard/Dashboard';
 import DoctorAdd from './components/Doctors/Add';
 import Landing from './components/Landing/Landing';
 import AppLayout from './components/Layout/AppLayout';
@@ -31,7 +34,7 @@ const AppRouter = () => {
           path="/dashboard"
           component={Dashboard}
           layout={AppLayout}
-          layoutProps={{ menu: dashboardMenu }}
+          layoutProps={{ menu: dashboardMenu, doctorMenu }}
         />
         <AuthedRoute exact path="/doctor/add" component={DoctorAdd} />
         <AuthedRoute exact path="/providers" component={Providers} />
