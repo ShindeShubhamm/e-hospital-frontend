@@ -4,7 +4,7 @@ const initialState = {
   data: null,
 };
 
-const providerReducer = (state = initialState, action) => {
+const prodReducer = (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -19,4 +19,4 @@ const providerReducer = (state = initialState, action) => {
   }
 };
 
-export default providerReducer;
+export default prodReducer;

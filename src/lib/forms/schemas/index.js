@@ -11,6 +11,10 @@ const getSchema = (name) => {
       return doctor.basicInfo();
     case 'DOCTOR_REGISTRATION_DETAILS':
       return doctor.registrationDetails();
+    case 'DOCTOR_OTHER_DETAILS':
+      return doctor.otherDetails();
+    case 'DOCTOR_EDU_DETAILS':
+      return doctor.qualificationDetails();
     default:
       return { fields: [] };
   }
