@@ -23,12 +23,17 @@ const AppLayout = (props) => {
     doctorMenu,
     onMenuItemSelect,
     dashboard,
+    pharmaMenu,
   } = props;
   const navLinks = !auth?.userInfo?.isProvider
     ? appLayoutNavLinks
     : appLayoutProviderLinks;
 
-  const mapMenu = !auth?.userInfo?.isProvider ? menu : doctorMenu;
+  const mapMenu = !auth?.userInfo?.isProvider
+    ? menu
+    : auth?.userInfo?.isProvider === 'doctor'
+    ? doctorMenu
+    : pharmaMenu;
 
   const [drawer, setDrawer] = useState(false);
 

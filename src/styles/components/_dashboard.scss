@@ -12,45 +12,76 @@
     margin-top: 14px;
     .pp-wrapper {
       position: relative;
-      width: 150px;
+      width: 100px;
       .u-btn {
         background-color: #eaeaea;
         position: absolute;
         right: -15px;
         top: 50%;
         transform: translate(0, -50%);
+        width: 30px;
+        height: 30px;
+        svg {
+          font-size: 16px;
+        }
       }
       .c-btn {
         background-color: #eaeaea;
         position: absolute;
         right: 6px;
         bottom: 8px;
+        width: 30px;
+        height: 30px;
+        svg {
+          font-size: 16px;
+        }
       }
       .pp {
-        width: 150px;
-        height: 150px;
+        width: 100px;
+        height: 100px;
         object-fit: cover;
         border-radius: 50%;
       }
     }
-    .inline {
-      display: flex;
+  }
+  .il-title {
+    color: navy;
+    margin: 24px 0 0;
+    text-decoration: underline;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .inline {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .datagroup {
+    width: 400px;
+    margin: 10px;
+    margin-left: 0;
+    .datatype {
+      font-size: 12px;
+      font-weight: 500;
+      color: #888;
+      margin: 0;
     }
-    .datagroup {
-      width: 400px;
-      margin: 10px;
-      margin-left: 0;
-      .datatype {
-        font-size: 12px;
-        font-weight: 500;
-        color: #888;
-        margin: 0;
-      }
-      .data {
-        margin: 0;
-        font-size: 16px;
-        word-break: break-word;
-      }
+    .data {
+      margin: 0;
+      font-size: 15px;
+      word-break: break-word;
+      color: #444444 !important;
+      text-decoration: none;
+    }
+  }
+
+  .pdetails {
+    padding-top: 20px;
+    border-top: 1px solid #cccccc;
+    .prod-title {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 500;
+      color: $theme-primary;
     }
   }
 
@@ -58,29 +89,15 @@
     .udetails {
       .datagroup {
         width: auto;
+        margin-right: 30px !important;
       }
     }
   }
 
   @include scMax(960) {
-    .pp-wrapper {
-      width: 120px;
-      .u-btn {
-        right: 14px !important;
-        top: 50%;
-        transform: translate(0, -50%);
-      }
-      .c-btn {
-        right: 35px !important;
-      }
-      .pp {
-        width: 120px !important;
-        height: 120px !important;
-      }
-    }
     .udetails {
       .datagroup {
-        width: auto;
+        width: 100%;
         .datatype {
           font-size: 12px;
         }

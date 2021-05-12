@@ -64,7 +64,7 @@ const Providers = (props) => {
             </button>
           </div>
         </div>
-        <div className="section">
+        {/* <div className="section">
           <img
             src="/images/hospital.png"
             alt="Hospital"
@@ -83,7 +83,7 @@ const Providers = (props) => {
               Register as Hospital
             </button>
           </div>
-        </div>
+        </div> */}
         <div className="section">
           <img
             src="/images/pharma.png"

@@ -7,6 +7,7 @@ import Signup from './components/Auth/Signup/Signup';
 import Dashboard, {
   dashboardMenu,
   doctorMenu,
+  pharmaMenu,
 } from './components/Dashboard/Dashboard';
 import DoctorAdd from './components/Doctors/Add';
 import Landing from './components/Landing/Landing';
@@ -34,7 +35,7 @@ const AppRouter = () => {
           path="/dashboard"
           component={Dashboard}
           layout={AppLayout}
-          layoutProps={{ menu: dashboardMenu, doctorMenu }}
+          layoutProps={{ menu: dashboardMenu, doctorMenu, pharmaMenu }}
         />
         <AuthedRoute exact path="/doctor/add" component={DoctorAdd} />
         <AuthedRoute exact path="/providers" component={Providers} />

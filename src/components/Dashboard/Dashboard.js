@@ -14,8 +14,10 @@ import { connect } from 'react-redux';
 
 import BookAppointment from './BookAppointment';
 import PastAppointment from './PastAppointment';
+import Pharma from './Pharma';
 import Profile from './Profile';
 import Records from './Records';
+import Schedule from './Schedule';
 
 export const dashboardMenu = [
   { text: 'Profile', icon: RiDashboardLine, iconSelected: RiDashboardFill },
@@ -37,15 +39,30 @@ export const doctorMenu = [
   },
 ];
 
-const Dashboard = (props) => {
-  const { dashboard } = props;
+export const pharmaMenu = [
+  { text: 'Profile', icon: RiDashboardLine, iconSelected: RiDashboardFill },
+  {
+    text: 'Prescriptions Today',
+    icon: RiCalendarEventLine,
+    iconSelected: RiCalendarEventFill,
+  },
+];
 
-  const getComponent = (id) => {
+const Dashboard = (props) => {
+  const { dashboard, auth } = props;
+
+  const getComponent = (id, isProvider) => {
     switch (id) {
       case 0:
         return <Profile />;
       case 1:
-        return <Records />;
+        return !isProvider ? (
+          <Records />
+        ) : isProvider === 'doctor' ? (
+          <Schedule />
+        ) : (
+          <Pharma />
+        );
       case 2:
         return <BookAppointment />;
       case 3:
@@ -56,13 +73,16 @@ const Dashboard = (props) => {
   };
 
   return (
-    <div className="dashboard">{getComponent(dashboard.selectedMenu)}</div>
+    <div className="dashboard">
+      {getComponent(dashboard.selectedMenu, auth?.userInfo?.isProvider)}
+    </div>
   );
 };
 
 const mapStateToProps = (state) => {
   return {
     dashboard: state.dashboard,
+    auth: state.auth,
   };
 };
 

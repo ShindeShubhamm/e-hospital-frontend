@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 
+import { FiExternalLink } from 'react-icons/fi';
 import { MdFileUpload } from 'react-icons/md';
 import { RiCloseFill } from 'react-icons/ri';
 import { connect } from 'react-redux';
@@ -13,7 +14,12 @@ import Loader from '../common/Loader';
 const api = process.env.REACT_APP_API_ENDPOINT;
 
 const Profile = (props) => {
-  const { auth, uploadProfilePic, deleteProfilePic } = props;
+  const {
+    auth,
+    uploadProfilePic,
+    deleteProfilePic,
+    prod: { data },
+  } = props;
 
   const {
     firstName,
@@ -71,7 +77,7 @@ const Profile = (props) => {
             )}
             <img
               src={`${api}/file/${
-                profilePhoto || 'e42544de9ff0743ec38fb5cafdee44b8.png'
+                profilePhoto || 'cc86e064a1c27d3cd8b5d42c24285266.webp'
               }`}
               alt=""
               className="pp"
@@ -95,6 +101,67 @@ const Profile = (props) => {
             <p className="datatype">Mobile Number</p>
             <p className="data">{mobileNumber}</p>
           </div>
+          {console.log(data)}
+          {auth?.userInfo?.isProvider && data && (
+            <div className="pdetails">
+              <h1 className="prod-title">Provider Details</h1>
+              <div className="datagroup">
+                <p className="datatype">Provider Type</p>
+                <p className="data">{data.type?.toUpperCase()}</p>
+              </div>
+              <h3 className="il-title">Registration Details</h3>
+              <div className="inline">
+                <div className="datagroup">
+                  <p className="datatype">Registration Council</p>
+                  <p className="data">{data?.data?.registrationCouncil}</p>
+                </div>
+                <div className="datagroup">
+                  <p className="datatype">Registration Number</p>
+                  <p className="data">{data?.data?.registrationNumber}</p>
+                </div>
+                <div className="datagroup">
+                  <p className="datatype">Registration Year</p>
+                  <p className="data">{data?.data?.registrationYear}</p>
+                </div>
+              </div>
+              <h3 className="il-title">Qualification Details</h3>
+              <div className="inline">
+                <div className="datagroup">
+                  <p className="datatype">College Name</p>
+                  <p className="data">{data?.data?.college}</p>
+                </div>
+                <div className="datagroup">
+                  <p className="datatype">Degree</p>
+                  <p className="data">{data?.data?.degree}</p>
+                </div>
+                <div className="datagroup">
+                  <p className="datatype">Year of Completion</p>
+                  <p className="data">{data?.data?.yearOfCompletion}</p>
+                </div>
+              </div>
+              <h3 className="il-title">Other Details</h3>
+              <div className="inline">
+                <div className="datagroup">
+                  <p className="datatype">Specialization</p>
+                  <p className="data">{data?.data?.specialization}</p>
+                </div>
+                <div className="datagroup">
+                  <p className="datatype">Uploaded ID Proof</p>
+                  <a
+                    href={`${api}/file/${data.idProof}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="data"
+                  >
+                    View
+                    <FiExternalLink
+                      style={{ marginLeft: '10px', paddingTop: '2px' }}
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>
@@ -104,6 +171,7 @@ const Profile = (props) => {
 const mapStateToProps = (state) => {
   return {
     auth: state.auth,
+    prod: state.prod,
   };
 };
 

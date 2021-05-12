@@ -14,6 +14,7 @@ import {
   AUTH_SUCCESS,
   BDROP_SET,
   BDROP_UNSET,
+  OVERLAY_SET,
   OVERLAY_UNSET,
   PROFILE_PIC_REMOVE,
   PROFILE_PIC_UPLOAD,
@@ -76,6 +77,9 @@ export const authLogin = (data) => async (dispatch) => {
 };
 
 export const authLogout = () => (dispatch) => {
+  dispatch({
+    type: OVERLAY_SET,
+  });
   dispatch({
     type: AUTH_LOGOUT,
   });

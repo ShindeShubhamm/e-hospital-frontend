@@ -23,8 +23,7 @@ export const switchToProvider = (userId, type, data, formData) => async (
     });
     formData.append('id', res.data._id);
     const fileRes = await FileAPI.upload(formData);
-    await UserAPI.update(userId, { isProvider: true });
-    dispatch({ type: UPDATE_USER, payload: { isProvider: true } });
+    dispatch({ type: UPDATE_USER, payload: { isProvider: type } });
     dispatch({
       type: CREATE_PROVIDER_ACC,
       payload: { ...res.data, idProof: fileRes.data.filename },
