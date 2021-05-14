@@ -64,26 +64,6 @@ const Providers = (props) => {
             </button>
           </div>
         </div>
-        {/* <div className="section">
-          <img
-            src="/images/hospital.png"
-            alt="Hospital"
-            className="provider-image"
-          />
-          <div className="pro-content">
-            <p>
-              Register as doctor to be able to access advance tool on the
-              Rx.Online portal.
-            </p>
-            <button
-              onClick={() => handleClick('/hospital/add')}
-              type="button"
-              className="link"
-            >
-              Register as Hospital
-            </button>
-          </div>
-        </div> */}
         <div className="section">
           <img
             src="/images/pharma.png"
@@ -92,7 +72,7 @@ const Providers = (props) => {
           />
           <div className="pro-content">
             <p>
-              Register as doctor to be able to access advance tool on the
+              Register as pharmacy to be able to access advance tool on the
               Rx.Online portal.
             </p>
             <button

@@ -8,6 +8,30 @@ body {
   background-color: #fff !important;
 }
 
+/* Works on Firefox */
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #c2c2c2 transparent !important;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #c2c2c2 !important;
+  border-radius: 20px !important;
+  &:hover {
+    background-color: #aaaaaa !important;
+  }
+}
+
 /* MEDIA QUERIES - Primary layout.
 ========================================================================== */
 

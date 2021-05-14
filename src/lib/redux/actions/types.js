@@ -6,6 +6,8 @@ export const AUTH_LOGOUT = 'AUTH_LOGOUT';
 export const PROFILE_PIC_UPLOAD = 'PROFILE_PIC_UPLOAD';
 export const PROFILE_PIC_REMOVE = 'PROFILE_PIC_REMOVE';
 export const UPDATE_USER = 'UPDATE_USER';
+export const ADD_RECORD = 'ADD_RECORD';
+export const DELETE_RECORD = 'DELETE_RECORD';
 
 // BACKDROP ACTIONS
 export const BDROP_SET = 'BDROP_SET';

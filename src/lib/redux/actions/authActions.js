@@ -6,6 +6,7 @@ import UserAPI from '../../../api/UserAPI';
 import setAxiosToken from '../../../utils/setAxiosToken';
 import { loadProviderData } from './prodActions';
 import {
+  ADD_RECORD,
   ALERT_ERROR,
   ALERT_SET,
   AUTH_ERROR,
@@ -14,10 +15,12 @@ import {
   AUTH_SUCCESS,
   BDROP_SET,
   BDROP_UNSET,
+  DELETE_RECORD,
   OVERLAY_SET,
   OVERLAY_UNSET,
   PROFILE_PIC_REMOVE,
   PROFILE_PIC_UPLOAD,
+  UPDATE_USER,
 } from './types';
 
 const setLoading = () => {
@@ -201,6 +204,83 @@ export const deleteProfilePic = (filename, userId) => async (dispatch) => {
     await FileAPI.delete(filename);
     dispatch({ type: PROFILE_PIC_REMOVE });
     dispatch({ type: BDROP_UNSET });
+  } catch (error) {
+    dispatch({
+      type: ALERT_ERROR,
+    });
+    dispatch({ type: BDROP_UNSET });
+  }
+};
+
+export const uploadRecord = (fileInfo, userInfo) => async (dispatch) => {
+  dispatch({ type: BDROP_SET });
+  if (userInfo.records?.length >= 5) {
+    dispatch({
+      type: ALERT_SET,
+      payload: {
+        open: true,
+        message: "Can't upload more than 5 records!",
+        severity: 'error',
+      },
+    });
+    dispatch({ type: BDROP_UNSET });
+    return;
+  }
+  try {
+    const res = await FileAPI.upload(fileInfo.form);
+    const records = [
+      ...userInfo.records,
+      { file: res?.data?.filename, name: fileInfo?.name },
+    ];
+    await UserAPI.update(userInfo._id, {
+      records,
+    });
+    dispatch({
+      type: UPDATE_USER,
+      payload: {
+        records,
+      },
+    });
+    dispatch({ type: BDROP_UNSET });
+    dispatch({
+      type: ALERT_SET,
+      payload: {
+        open: true,
+        message: 'Record uploaded successfully!',
+        severity: 'success',
+      },
+    });
+  } catch (error) {
+    dispatch({
+      type: ALERT_ERROR,
+    });
+    dispatch({ type: BDROP_UNSET });
+  }
+};
+
+export const deleteRecord = (id, userInfo) => async (dispatch) => {
+  dispatch({ type: BDROP_SET });
+  try {
+    await FileAPI.delete(id);
+    const records = userInfo.records.filter((r) => r.file !== id);
+    await UserAPI.update(userInfo._id, {
+      records,
+    });
+    dispatch({
+      type: UPDATE_USER,
+      payload: {
+        records,
+      },
+    });
+    dispatch({ type: BDROP_UNSET });
+    dispatch({
+      type: ALERT_SET,
+      payload: {
+        open: true,
+        message: 'Record deleted successfully!',
+        severity: 'success',
+      },
+    });
   } catch (error) {
     dispatch({
       type: ALERT_ERROR,

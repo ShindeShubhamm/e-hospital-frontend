@@ -9,6 +9,8 @@ import {
   deleteProfilePic,
   uploadProfilePic,
 } from '../../lib/redux/actions/authActions';
+import { snackSet } from '../../lib/redux/actions/snackbarActions';
+import { isValidImage } from '../../utils/validateFile';
 import Loader from '../common/Loader';
 
 const api = process.env.REACT_APP_API_ENDPOINT;
@@ -19,6 +21,7 @@ const Profile = (props) => {
     uploadProfilePic,
     deleteProfilePic,
     prod: { data },
+    snackSet,
   } = props;
 
   const {
@@ -33,6 +36,10 @@ const Profile = (props) => {
 
   const handleProfilePhoto = (e) => {
     if (!e.target.value) {
+      return;
+    }
+    if (!isValidImage(e.target.value)) {
+      snackSet({ message: 'Only image files allowed', severity: 'warning' });
       return;
     }
     const formData = new FormData();
@@ -101,7 +108,6 @@ const Profile = (props) => {
             <p className="datatype">Mobile Number</p>
             <p className="data">{mobileNumber}</p>
           </div>
-          {console.log(data)}
           {auth?.userInfo?.isProvider && data && (
             <div className="pdetails">
               <h1 className="prod-title">Provider Details</h1>
@@ -181,6 +187,7 @@ const mapDispatchToProps = (dispatch) => {
     deleteProfilePic: (filename, userId) => {
       dispatch(deleteProfilePic(filename, userId));
     },
+    snackSet: (data) => dispatch(snackSet(data)),
   };
 };
 
