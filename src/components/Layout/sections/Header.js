@@ -93,8 +93,8 @@ const Header = (props) => {
                         />
                       ) : (
                         <div className="h-image-alt">
-                          {userInfo.firstName?.charAt(0)}
-                          {userInfo.lastName?.charAt(0)}
+                          {userInfo?.firstName?.charAt(0)}
+                          {userInfo?.lastName?.charAt(0)}
                         </div>
                       )}
                     </div>

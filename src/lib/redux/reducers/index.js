@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 
+import appointReducer from './appointReducer';
 import authReducer from './authReducer';
 import backdropReducer from './backdropReducer';
 import dashboardReducer from './dashboardReducer';
@@ -16,4 +17,5 @@ export default combineReducers({
   form: formReducer,
   dashboard: dashboardReducer,
   prod: prodReducer,
+  appoint: appointReducer,
 });

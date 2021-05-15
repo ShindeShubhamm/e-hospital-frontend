@@ -7,13 +7,10 @@ import {
   RiDashboardLine,
   RiFoldersFill,
   RiFoldersLine,
-  RiTimer2Fill,
-  RiTimer2Line,
 } from 'react-icons/ri';
 import { connect } from 'react-redux';
 
 import BookAppointment from './BookAppointment';
-import PastAppointment from './PastAppointment';
 import Pharma from './Pharma';
 import Profile from './Profile';
 import Records from './Records';
@@ -27,7 +24,6 @@ export const dashboardMenu = [
     icon: RiCalendarEventLine,
     iconSelected: RiCalendarEventFill,
   },
-  { text: 'Past Appointments', icon: RiTimer2Line, iconSelected: RiTimer2Fill },
 ];
 
 export const doctorMenu = [
@@ -65,8 +61,6 @@ const Dashboard = (props) => {
         );
       case 2:
         return <BookAppointment />;
-      case 3:
-        return <PastAppointment />;
       default:
         return '';
     }

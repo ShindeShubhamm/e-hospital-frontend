@@ -1,4 +1,4 @@
-import { ALERT_SET, ALERT_UNSET } from './types';
+import { ALERT_ERROR, ALERT_SET, ALERT_UNSET } from './types';
 
 export const snackClose = () => (dispatch) => {
   dispatch({
@@ -15,4 +15,8 @@ export const snackSet = (data) => (dispatch) => {
       severity: data.severity,
     },
   });
+};
+
+export const snackError = () => (dispatch) => {
+  dispatch({ type: ALERT_ERROR });
 };

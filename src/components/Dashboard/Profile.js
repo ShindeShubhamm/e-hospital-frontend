@@ -31,7 +31,7 @@ const Profile = (props) => {
     mobileNumber,
     profilePhoto,
   } = useMemo(() => {
-    return auth.userInfo ? auth.userInfo : {};
+    return auth?.userInfo ? auth?.userInfo : {};
   }, [auth.userInfo]);
 
   const handleProfilePhoto = (e) => {
