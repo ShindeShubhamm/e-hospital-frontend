@@ -24,20 +24,22 @@ export const bookAppointment = (data) => async (dispatch) => {
   }
 };
 
-export const cancelAppointment = (id, appoints) => async (dispatch) => {
+export const cancelAppointment = (id, appoints, byDoctor) => async (
+  dispatch,
+) => {
   dispatch({ type: BDROP_SET });
   try {
     const cancelData = appoints.find((a) => a._id === id);
-    cancelData.status = 'cancelled';
+    cancelData.status = byDoctor || 'cancelled';
     const data = appoints.filter((a) => a._id !== id);
     data.push(cancelData);
-    const res = await AppointAPI.update(id, data);
+    const res = await AppointAPI.update(id, cancelData);
     dispatch({
       type: UPDATE_APPOINTMENT,
       payload: data,
     });
     dispatch({ type: BDROP_UNSET });
-    dispatch(snackSet({ message: 'Cancelled!', severity: 'success' }));
+    dispatch(snackSet({ message: 'Success!', severity: 'success' }));
   } catch (error) {
     dispatch(snackError());
     dispatch({ type: BDROP_UNSET });

@@ -7,7 +7,9 @@ import {
   BDROP_SET,
   BDROP_UNSET,
   CREATE_PROVIDER_ACC,
+  LOAD_ALL_DOCTORS,
   LOAD_PROVIDER_DATA,
+  START_LOAD_ALL_DOCTORS,
   UPDATE_USER,
 } from './types';
 
@@ -49,5 +51,23 @@ export const loadProviderData = (userId) => async (dispatch) => {
     });
   } catch (error) {
     dispatch({ type: BDROP_UNSET });
+  }
+};
+
+export const loadAllDoctors = () => async (dispatch) => {
+  dispatch({ type: START_LOAD_ALL_DOCTORS });
+  try {
+    const res = await ProviderAPI.getAllProviders();
+
+    dispatch({
+      type: LOAD_ALL_DOCTORS,
+      payload: res.data.doctorUsers,
+    });
+  } catch (error) {
+    dispatch({
+      type: ALERT_SET,
+      message: 'Failed to fetch doctors!',
+      severity: 'error',
+    });
   }
 };

@@ -29,7 +29,7 @@ export const dashboardMenu = [
 export const doctorMenu = [
   { text: 'Profile', icon: RiDashboardLine, iconSelected: RiDashboardFill },
   {
-    text: 'Appointments Today',
+    text: 'Appointments',
     icon: RiCalendarEventLine,
     iconSelected: RiCalendarEventFill,
   },

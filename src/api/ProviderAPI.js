@@ -12,6 +12,9 @@ const ProviderAPI = {
   updateProvider: (id, data) => {
     return axios.patch(`${api}/provider/${id}`, data);
   },
+  getAllProviders: () => {
+    return axios.get(`${api}/provider`);
+  },
 };
 
 export default ProviderAPI;
