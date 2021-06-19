@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import App from './App';
 import store from './lib/redux/store';
 import reportWebVitals from './reportWebVitals';
+import * as serviceWorker from './serviceWorker';
 import { AppTheme } from './theme';
 
 window.addEventListener('storage', (event) => {
@@ -31,3 +32,4 @@ ReactDOM.render(<AppIndex />, document.getElementById('root'));
 
 // Web vitals for performance improvement. For later use.
 reportWebVitals();
+serviceWorker.register();
