@@ -31,5 +31,5 @@ const AppIndex = () => {
 ReactDOM.render(<AppIndex />, document.getElementById('root'));
 
 // Web vitals for performance improvement. For later use.
-reportWebVitals();
-serviceWorker.register();
+// reportWebVitals();
+// serviceWorker.register();
